@@ -15,7 +15,10 @@ public class Usuario {
     @Column(name = "nome_completo")
     private String nomeCompleto;
     private String cpf;
+
+    @Enumerated(EnumType.STRING)
     private SexoEnum sexo;
+
     private Integer idade;
 
     @Column(name = "data_de_nascimento")

@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public enum SexoEnum {
-    USE(0), MAINTENANCE(1), ASCENSION(2);
+    Masculino(0), Feminino(2);
 
     private final int value;
     private static final Map<Integer, SexoEnum> map;
