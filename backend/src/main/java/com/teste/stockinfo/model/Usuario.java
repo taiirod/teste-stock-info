@@ -4,6 +4,7 @@ import com.teste.stockinfo.model.enums.SexoEnum;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Usuario {
