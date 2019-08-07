@@ -15,6 +15,8 @@ public class TipoDeConta {
     @Column(name = "nome_do_plano")
     private String nomePlano;
 
+    private Double saldo;
+
     public Long getId() {
         return id;
     }
@@ -29,5 +31,13 @@ public class TipoDeConta {
 
     public void setNomePlano(String nomePlano) {
         this.nomePlano = nomePlano;
+    }
+
+    public Double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Double saldo) {
+        this.saldo = saldo;
     }
 }

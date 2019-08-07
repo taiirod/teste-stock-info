@@ -1,9 +1,6 @@
 package com.teste.stockinfo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -13,8 +10,10 @@ public class Conta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
     private Usuario usuario;
 
+    @OneToMany
     private List<TipoDeConta> tiposDeConta;
 
     public Long getId() {
