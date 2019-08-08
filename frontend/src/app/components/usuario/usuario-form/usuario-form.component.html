@@ -1,1 +1,21 @@
-<p>usuario-form works!</p>
+<div class="container">
+
+  <div class="col-12">
+    <div class="row">
+      <form #usuarioForm="ngForm" (ngSubmit)="novoUsuario(usuarioForm)">
+        <div class="form-group">
+          <label for="nomeCompleto">Nome Completo</label>
+          <input type="text" class="form-control" id="nomeCompleto" placeholder="Nome Completo">
+        </div>
+
+
+
+
+
+        <button type="submit" class="btn btn-primary"> Adicionar </button>
+      </form>
+    </div>
+  </div>
+
+
+</div>

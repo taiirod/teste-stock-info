@@ -11,6 +11,8 @@ import {UsuariosService} from './services/usuarios.service';
 import {FormsModule} from '@angular/forms';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { UsuarioFormComponent } from './components/usuario/usuario-form/usuario-form.component';
+import { ContaComponent } from './components/conta/conta.component';
+import { ContaFormComponent } from './components/conta/conta-form/conta-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { UsuarioFormComponent } from './components/usuario/usuario-form/usuario-
     UsuarioComponent,
     HeaderComponent,
     InicioComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
+    ContaComponent,
+    ContaFormComponent
   ],
   imports: [
     BrowserModule,

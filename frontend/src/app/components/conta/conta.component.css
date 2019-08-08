@@ -1,0 +1,13 @@
+.card {
+  margin-bottom: 2%;
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.btn-primary {
+  margin: 2%;
+}
