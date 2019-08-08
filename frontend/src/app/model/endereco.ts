@@ -1,9 +1,12 @@
-export class Endereco {
+export interface Endereco {
 
-  private cep: string;
-  private logradouro: string;
-  private complemento: string;
-  private bairro: string;
-  private localidade: string;
-  private uf: string;
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+
+
 }
+

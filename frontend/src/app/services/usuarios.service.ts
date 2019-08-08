@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Usuario} from '../model/usuario';
-import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,7 @@ export class UsuariosService {
   }
 
   buscarTodosUsuarios() {
-    return this.httpClient.get<Usuario[]>(this.endpoint);
+    return this.httpClient.get<Array<Usuario>>(this.endpoint);
   }
 
   novo(usuario: Usuario) {

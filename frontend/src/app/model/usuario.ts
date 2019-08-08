@@ -1,15 +1,15 @@
 import {Endereco} from './endereco';
 
-export class Usuario {
+export interface Usuario {
 
-  private id: number;
-  private nomeCompleto: string;
-  private cpf: string;
-  private sexo: string;
-  private idade: number;
-  private dataDeNascimento: string;
-  private email: string;
-  private telefone: string;
-  private endereco: Endereco;
+  id: number;
+  nomeCompleto: string;
+  cpf: string;
+  sexo: string;
+  idade: number;
+  dataDeNascimento: string;
+  email: string;
+  telefone: string;
+  endereco: Endereco;
 
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuariosService} from '../../services/usuarios.service';
 import {Usuario} from '../../model/usuario';
+import {Endereco} from '../../model/endereco';
 
 @Component({
   selector: 'app-usuario',
@@ -8,16 +9,28 @@ import {Usuario} from '../../model/usuario';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-  usuarios: Usuario[];
+
+  todosUsuarios: Array<Usuario> = new Array<Usuario>();
+
+  usuario: Usuario;
 
   constructor(private usuarioService: UsuariosService) {
   }
 
   ngOnInit() {
-    this.usuarioService.buscarTodosUsuarios().subscribe(
-      (resp: Usuario[]) => {
-      this.usuarios = resp;
-      console.log(this.usuarios);
+    this.buscarTodosUsuarios();
+  }
+
+  buscarTodosUsuarios() {
+    this.usuarioService.buscarTodosUsuarios().subscribe(resp => {
+      this.todosUsuarios = resp;
+    });
+  }
+
+  novoUsuario(usuario) {
+    console.log(usuario)
+    this.usuarioService.novo(usuario).subscribe(resp => {
+      console.log(resp);
     });
   }
 
