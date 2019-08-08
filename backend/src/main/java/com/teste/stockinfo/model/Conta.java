@@ -1,5 +1,7 @@
 package com.teste.stockinfo.model;
 
+import com.teste.stockinfo.model.enums.TipoContaEnum;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,8 +15,12 @@ public class Conta {
     @ManyToOne
     private Usuario usuario;
 
-    @OneToMany
-    private List<TipoDeConta> tiposDeConta;
+    @Enumerated(EnumType.STRING)
+    private TipoContaEnum tipoConta;
+
+    private Double saldoContaNormal;
+
+    private Double saldoContaEventual;
 
     public Long getId() {
         return id;
@@ -32,11 +38,27 @@ public class Conta {
         this.usuario = usuario;
     }
 
-    public List<TipoDeConta> getTiposDeConta() {
-        return tiposDeConta;
+    public TipoContaEnum getTipoConta() {
+        return tipoConta;
     }
 
-    public void setTiposDeConta(List<TipoDeConta> tiposDeConta) {
-        this.tiposDeConta = tiposDeConta;
+    public void setTipoConta(TipoContaEnum tipoConta) {
+        this.tipoConta = tipoConta;
+    }
+
+    public Double getSaldoContaNormal() {
+        return saldoContaNormal;
+    }
+
+    public void setSaldoContaNormal(Double saldoContaNormal) {
+        this.saldoContaNormal = saldoContaNormal;
+    }
+
+    public Double getSaldoContaEventual() {
+        return saldoContaEventual;
+    }
+
+    public void setSaldoContaEventual(Double saldoContaEventual) {
+        this.saldoContaEventual = saldoContaEventual;
     }
 }

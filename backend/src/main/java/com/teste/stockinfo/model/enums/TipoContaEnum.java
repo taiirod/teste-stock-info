@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public enum SexoEnum {
-    Masculino(0), Feminino(1);
+public enum TipoContaEnum {
+    Normal(0), Eventual(1);
 
     private final int value;
-    private static final Map<Integer, SexoEnum> map;
+    private static final Map<Integer, TipoContaEnum> map;
 
-    SexoEnum(int value) {
+    TipoContaEnum(int value) {
         this.value = value;
     }
 
@@ -21,7 +21,7 @@ public enum SexoEnum {
         map = Arrays.stream(values()).collect(Collectors.toMap(e -> e.value, e -> e));
     }
 
-    public static SexoEnum fromInt(int value) {
+    public static TipoContaEnum fromInt(int value) {
         return map.get(value);
     }
 }

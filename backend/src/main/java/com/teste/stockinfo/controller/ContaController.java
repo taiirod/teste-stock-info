@@ -1,10 +1,8 @@
 package com.teste.stockinfo.controller;
 
 
-import com.teste.stockinfo.model.Conta;
-import com.teste.stockinfo.model.Saque;
-import com.teste.stockinfo.model.TipoDeConta;
-import com.teste.stockinfo.model.Usuario;
+import com.teste.stockinfo.model.*;
+import com.teste.stockinfo.model.enums.TipoContaEnum;
 import com.teste.stockinfo.repository.ContaRepository;
 import com.teste.stockinfo.repository.TipoDeContaRepository;
 import com.teste.stockinfo.repository.UsuarioRepository;
@@ -45,26 +43,52 @@ public class ContaController {
     public ResponseEntity<Conta> sacar(@PathVariable Conta idConta, @RequestBody Saque saque) {
         Conta c = contaRepository.getOne(idConta.getId());
 
-        List<TipoDeConta> tc = c.getTiposDeConta();
-
-        for (TipoDeConta tdc : tc) {
-            if (tdc.getId().equals(saque.getTipoDeConta().getId())) {
-
-                Double saldoAtual = tdc.getSaldo();
-
+        if (saque.getTipoDeConta().equals(TipoContaEnum.Eventual)) {
+            if (saque.getValor() < c.getSaldoContaEventual()) {
+                Double saldoAtual = c.getSaldoContaEventual();
                 saldoAtual = saldoAtual - saque.getValor();
 
-                tdc.setSaldo(saldoAtual);
+                c.setSaldoContaEventual(saldoAtual);
 
-                c.setTiposDeConta(tc);
-                System.out.println(tdc);
+                contaRepository.save(c);
+            }
+        } else if (saque.getTipoDeConta().equals(TipoContaEnum.Normal)) {
+            if (saque.getValor() < c.getSaldoContaNormal()) {
+                Double saldoAtual = c.getSaldoContaNormal();
+                saldoAtual = saldoAtual - saque.getValor();
+
+                c.setSaldoContaNormal(saldoAtual);
 
                 contaRepository.save(c);
             }
         }
 
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(c);
+    }
+
+    @PutMapping("/depositar/{idConta}")
+    public ResponseEntity<Conta> depositar(@PathVariable Conta idConta, @RequestBody Deposito deposito) {
+        Conta c = contaRepository.getOne(idConta.getId());
+
+        if (deposito.getTipoDeConta().equals(TipoContaEnum.Eventual)) {
+            Double saldoAtual = c.getSaldoContaEventual();
+            saldoAtual = saldoAtual + deposito.getValor();
+
+            c.setSaldoContaEventual(saldoAtual);
+
+            contaRepository.save(c);
+        } else if (deposito.getTipoDeConta().equals(TipoContaEnum.Normal)) {
+            Double saldoAtual = c.getSaldoContaNormal();
+            saldoAtual = saldoAtual + deposito.getValor();
+
+            c.setSaldoContaNormal(saldoAtual);
+
+            contaRepository.save(c);
+        }
+
+
+        return ResponseEntity.ok(c);
     }
 
 }
