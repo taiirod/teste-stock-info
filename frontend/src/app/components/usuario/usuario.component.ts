@@ -27,11 +27,8 @@ export class UsuarioComponent implements OnInit {
     });
   }
 
-  novoUsuario(usuario) {
-    console.log(usuario)
-    this.usuarioService.novo(usuario).subscribe(resp => {
-      console.log(resp);
-    });
+  novoUsuario(usuarioForm: any) {
+    console.log(usuarioForm)
   }
 
 }
