@@ -1,17 +1,15 @@
 package com.teste.stockinfo.controller;
 
 
-import com.teste.stockinfo.model.*;
+import com.teste.stockinfo.model.Conta;
+import com.teste.stockinfo.model.Deposito;
+import com.teste.stockinfo.model.Saque;
 import com.teste.stockinfo.model.enums.TipoContaEnum;
 import com.teste.stockinfo.repository.ContaRepository;
-import com.teste.stockinfo.repository.TipoDeContaRepository;
-import com.teste.stockinfo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -21,16 +19,15 @@ public class ContaController {
     @Autowired
     private ContaRepository contaRepository;
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    @Autowired
-    private TipoDeContaRepository tipoDeContaRepository;
-
-
     @GetMapping
     public List<Conta> buscarTodos() {
         return contaRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Conta> buscarPorId(@PathVariable Long id) {
+        Conta conta = contaRepository.getOne(id);
+        return ResponseEntity.ok(conta);
     }
 
     @PostMapping

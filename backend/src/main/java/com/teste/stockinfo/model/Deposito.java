@@ -19,6 +19,9 @@ public class Deposito {
 
     private Date data;
 
+    @ManyToOne
+    private Conta conta;
+
     public Long getId() {
         return id;
     }
@@ -49,5 +52,13 @@ public class Deposito {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 }

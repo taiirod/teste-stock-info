@@ -1,9 +1,6 @@
 package com.teste.stockinfo.model;
 
-import com.teste.stockinfo.model.enums.TipoContaEnum;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Conta {
@@ -14,9 +11,6 @@ public class Conta {
 
     @ManyToOne
     private Usuario usuario;
-
-    @Enumerated(EnumType.STRING)
-    private TipoContaEnum tipoConta;
 
     private Double saldoContaNormal;
 
@@ -36,14 +30,6 @@ public class Conta {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
-
-    public TipoContaEnum getTipoConta() {
-        return tipoConta;
-    }
-
-    public void setTipoConta(TipoContaEnum tipoConta) {
-        this.tipoConta = tipoConta;
     }
 
     public Double getSaldoContaNormal() {

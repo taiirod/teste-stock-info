@@ -17,6 +17,7 @@ public enum TipoContaEnum {
     public int getValue() {
         return value;
     }
+
     static {
         map = Arrays.stream(values()).collect(Collectors.toMap(e -> e.value, e -> e));
     }

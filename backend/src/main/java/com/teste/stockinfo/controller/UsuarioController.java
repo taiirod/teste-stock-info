@@ -17,12 +17,12 @@ public class UsuarioController {
     private UsuarioRepository usuarioRepository;
 
     @GetMapping
-    public List<Usuario> buscarTodos (){
+    public List<Usuario> buscarTodos() {
         return usuarioRepository.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> novo(@Valid @RequestBody Usuario usuario){
+    public ResponseEntity<Usuario> novo(@Valid @RequestBody Usuario usuario) {
         Usuario novoUsuario = usuarioRepository.save(usuario);
         return ResponseEntity.ok(novoUsuario);
     }
