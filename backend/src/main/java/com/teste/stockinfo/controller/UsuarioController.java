@@ -20,7 +20,8 @@ public class UsuarioController {
 
     @GetMapping
     public List<Usuario> buscarTodos() {
-        return usuarioRepository.findAll();
+        List<Usuario> list = usuarioRepository.findAll();
+        return list;
     }
 
     @PostMapping
