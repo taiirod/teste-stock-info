@@ -10,9 +10,7 @@ import {Endereco} from '../../model/endereco';
 })
 export class UsuarioComponent implements OnInit {
 
-  todosUsuarios: Array<Usuario> = new Array<Usuario>();
-
-  usuario: Usuario;
+  todosUsuarios: Usuario[];
 
   constructor(private usuarioService: UsuariosService) {
   }
@@ -22,13 +20,15 @@ export class UsuarioComponent implements OnInit {
   }
 
   buscarTodosUsuarios() {
-    this.usuarioService.buscarTodosUsuarios().subscribe(resp => {
-      this.todosUsuarios = resp;
-    });
+    this.usuarioService.buscarTodosUsuarios().then(
+      (resp: Usuario[]) => {
+        console.log(resp);
+        this.todosUsuarios = resp;
+      });
   }
 
-  novoUsuario(usuarioForm: any) {
-    console.log(usuarioForm)
-  }
+  /*novoUsuario(usuarioForm: any) {
+    console.log(usuarioForm);
+  }*/
 
 }

@@ -13,7 +13,9 @@ export class UsuariosService {
   }
 
   buscarTodosUsuarios() {
-    return this.httpClient.get<Array<Usuario>>(this.endpoint);
+    return this.httpClient.get(this.endpoint).toPromise().then(resp => {
+      return resp;
+    });
   }
 
   novo(usuario: Usuario) {

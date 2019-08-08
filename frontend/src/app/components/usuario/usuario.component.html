@@ -1,3 +1,11 @@
 <div class="container">
-
+  <div class="card" *ngFor="let u of todosUsuarios;">
+    <a href="">
+      <div class="card-body">
+        <h4>
+          {{u.nomeCompleto}}
+        </h4>
+      </div>
+    </a>
+  </div>
 </div>
