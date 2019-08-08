@@ -1,14 +1,13 @@
-package com.teste.stockinfo;
+package com.teste.stockinfo.dto;
 
 import java.util.Date;
 
-public class DepositoDTO {
+public class SaqueDTO {
 
-
-    private Double valor;
+    private Long conta;
     private String tipoDeConta;
+    private Double valor;
     private Date data;
-    private String conta;
 
     public Double getValor() {
         return valor;
@@ -34,11 +33,11 @@ public class DepositoDTO {
         this.data = data;
     }
 
-    public String getConta() {
+    public Long getConta() {
         return conta;
     }
 
-    public void setConta(String conta) {
+    public void setConta(Long conta) {
         this.conta = conta;
     }
 }

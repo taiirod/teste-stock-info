@@ -1,6 +1,5 @@
 package com.teste.stockinfo.service;
 
-import com.teste.stockinfo.DepositoDTO;
 import com.teste.stockinfo.model.Conta;
 import com.teste.stockinfo.model.Deposito;
 import com.teste.stockinfo.model.Saque;
@@ -38,7 +37,7 @@ public class ContaService {
         saque.setConta(c);
 
         if (saque.getTipoDeConta().equals(TipoContaEnum.Eventual)) {
-            if (saque.getValor() < c.getSaldoContaEventual()) {
+            if (saque.getValor() <= c.getSaldoContaEventual()) {
                 Double saldoAtual = c.getSaldoContaEventual();
                 saldoAtual = saldoAtual - saque.getValor();
 
@@ -47,7 +46,7 @@ public class ContaService {
                 contaRepository.save(c);
             }
         } else if (saque.getTipoDeConta().equals(TipoContaEnum.Normal)) {
-            if (saque.getValor() < c.getSaldoContaNormal()) {
+            if (saque.getValor() <= c.getSaldoContaNormal()) {
                 Double saldoAtual = c.getSaldoContaNormal();
                 saldoAtual = saldoAtual - saque.getValor();
 

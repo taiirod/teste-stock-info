@@ -1,6 +1,6 @@
 package com.teste.stockinfo.controller;
 
-import com.teste.stockinfo.DepositoDTO;
+import com.teste.stockinfo.dto.DepositoDTO;
 import com.teste.stockinfo.model.Deposito;
 import com.teste.stockinfo.repository.DepositoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +28,10 @@ public class DepositoController {
 
         for (Deposito d : depositosList) {
 
-            depositoDTO.setValor(d.getValor());
-            depositoDTO.setConta(d.getConta().getUsuario().getNomeCompleto());
-            depositoDTO.setData(d.getData());
+            depositoDTO.setConta(d.getConta().getId());
             depositoDTO.setTipoDeConta(d.getTipoDeConta().name());
+            depositoDTO.setValor(d.getValor());
+            depositoDTO.setData(d.getData());
 
             listTreated.add(depositoDTO);
         }
