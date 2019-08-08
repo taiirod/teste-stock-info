@@ -1,5 +1,6 @@
 package com.teste.stockinfo.service;
 
+import com.teste.stockinfo.DepositoDTO;
 import com.teste.stockinfo.model.Conta;
 import com.teste.stockinfo.model.Deposito;
 import com.teste.stockinfo.model.Saque;
@@ -12,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.Date;
 
 @Service
 public class ContaService {
@@ -28,6 +31,9 @@ public class ContaService {
 
     public ResponseEntity<Conta> sacar(@PathVariable Conta idConta, @RequestBody Saque saque) {
         Conta c = contaRepository.getOne(idConta.getId());
+
+        Date date = new Date();
+        saque.setData(date);
 
         saque.setConta(c);
 
@@ -58,6 +64,9 @@ public class ContaService {
 
     public ResponseEntity<Conta> depositar(@PathVariable Conta idConta, @RequestBody Deposito deposito) {
         Conta c = contaRepository.getOne(idConta.getId());
+
+        Date date = new Date();
+        deposito.setData(date);
 
         deposito.setConta(c);
 
