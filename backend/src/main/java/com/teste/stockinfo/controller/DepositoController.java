@@ -18,15 +18,16 @@ public class DepositoController {
     @Autowired
     private DepositoRepository depositoRepository;
 
-    private DepositoDTO depositoDTO = new DepositoDTO();
-
     @GetMapping
-    public List<DepositoDTO> todosDepositos() {
+    public List<?> todosDepositos() {
         List<Deposito> depositosList = depositoRepository.findAll();
         List<DepositoDTO> listTreated = new ArrayList<>();
 
 
         for (Deposito d : depositosList) {
+
+            DepositoDTO depositoDTO = new DepositoDTO();
+
 
             depositoDTO.setConta(d.getConta().getId());
             depositoDTO.setTipoDeConta(d.getTipoDeConta().name());
