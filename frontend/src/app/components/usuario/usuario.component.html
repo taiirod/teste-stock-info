@@ -1,10 +1,65 @@
 <div class="container">
-  <div class="card" *ngFor="let u of todosUsuarios;">
-    <a href="">
-      <div class="card-body">
-        <h4>
-          {{u.nomeCompleto}}
-        </h4>
+
+  <button class="btn btn-primary" routerLink="/usuario/novo">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    Usuário
+  </button>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="col-12">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="card-body">
+              <h5>
+                Nome
+              </h5>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-body">
+              <h5>
+                CPF
+              </h5>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-body">
+              <h5>
+                Telefone
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngFor="let u of todosUsuarios; let i = index">
+    <a routerLink="/usuario/{{i+1}}">
+      <div class="col-12">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="card-body">
+              <h6>
+                {{u.nomeCompleto}}
+              </h6>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-body">
+              <h6>
+                {{u.cpf}}
+              </h6>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-body">
+              <h6>
+                {{u.telefone}}
+              </h6>
+            </div>
+          </div>
+        </div>
       </div>
     </a>
   </div>

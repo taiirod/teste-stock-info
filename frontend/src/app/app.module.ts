@@ -10,13 +10,15 @@ import { HeaderComponent } from './components/header/header.component';
 import {UsuariosService} from './services/usuarios.service';
 import {FormsModule} from '@angular/forms';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { UsuarioFormComponent } from './components/usuario/usuario-form/usuario-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
     HeaderComponent,
-    InicioComponent
+    InicioComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,
