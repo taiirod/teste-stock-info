@@ -1,20 +1,43 @@
 <div class="container">
 
   <div class="col-12">
-    <div class="row">
-      <form #usuarioForm="ngForm" (ngSubmit)="novoUsuario(usuarioForm)">
-        <div class="form-group">
-          <label for="nomeCompleto">Nome Completo</label>
-          <input type="text" class="form-control" id="nomeCompleto" placeholder="Nome Completo">
+    <form #usuarioForm="ngForm" (ngSubmit)="novoUsuario(usuarioForm)">
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="nomeCompleto">Nome Completo</label>
+            <input type="text" name="nomeCompleto" class="form-control" id="nomeCompleto" placeholder="Nome Completo"
+                   ngModel>
+          </div>
         </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF"
+                   ngModel>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="phone" name="telefone" class="form-control" id="telefone" placeholder="Telefone"
+                   ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="sexo">Nome Completo</label>
+            <select name="sexo" class="form-control" id="sexo"
+                    ngModel>
+            </select>
+          </div>
+        </div>
+      </div>
 
-
-
-
-
-        <button type="submit" class="btn btn-primary"> Adicionar </button>
-      </form>
-    </div>
+      <button type="submit" class="btn btn-primary"> Adicionar</button>
+    </form>
   </div>
 
 
