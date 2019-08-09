@@ -5,4 +5,5 @@ export class Endereco {
   bairro: string;
   localidade: string;
   uf: string;
+  numero: number;
 }

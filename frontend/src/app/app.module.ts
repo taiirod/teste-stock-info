@@ -19,7 +19,6 @@ import {ContaService} from './services/conta.service';
 import {OperacaoService} from './services/operacao.service';
 import {EnderecoService} from './services/endereco.service';
 import {TitleService} from './services/title.service';
-import { DateMaskDirective } from './model/diretivas/date-mask.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { DateMaskDirective } from './model/diretivas/date-mask.directive';
     ContaComponent,
     ContaFormComponent,
     UsuarioDetalheComponent,
-    DateMaskDirective
   ],
   imports: [
     BrowserModule,

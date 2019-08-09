@@ -53,6 +53,7 @@ export class UsuarioFormComponent implements OnInit {
 
             this.endereco.cep = endereco.cep;
             this.endereco.logradouro = endereco.logradouro;
+            this.endereco.numero = endereco.numero;
             this.endereco.localidade = endereco.localidade;
             this.endereco.bairro = endereco.bairro;
             this.endereco.uf = endereco.uf;

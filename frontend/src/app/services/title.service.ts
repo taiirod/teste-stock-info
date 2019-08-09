@@ -8,9 +8,6 @@ const SEPARATOR = ' > ';
 
 @Injectable()
 export class TitleService {
-
-  headerTitle: string;
-
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,

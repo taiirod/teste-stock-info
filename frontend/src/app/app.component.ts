@@ -8,9 +8,8 @@ import {TitleService} from './services/title.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private titleService: TitleService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.titleService.init();
   }
 }

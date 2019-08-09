@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {TitleService} from '../../services/title.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +6,8 @@ import {TitleService} from '../../services/title.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title: any;
+
+  title: 'Início';
 
   constructor() {
   }

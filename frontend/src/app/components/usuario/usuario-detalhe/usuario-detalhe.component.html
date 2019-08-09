@@ -7,7 +7,7 @@
         </h5>
         <div class="row">
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Nome Completo
             </h6>
             <span>
@@ -15,7 +15,7 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               CPF
             </h6>
             <span>
@@ -23,7 +23,7 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Telefone
             </h6>
             <span>
@@ -33,7 +33,7 @@
         </div>
         <div class="row">
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Sexo
             </h6>
             <span>
@@ -41,7 +41,7 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               E-mail
             </h6>
             <span>
@@ -49,7 +49,7 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Data de nascimento
             </h6>
             <span>
@@ -61,8 +61,8 @@
           Endereço do usuário
         </h5>
         <div class="row">
-          <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+          <div class="col-2">
+            <h6 class="card-subtitle  mt-2 text-muted">
               CEP
             </h6>
             <span>
@@ -70,15 +70,23 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Logradouro
             </h6>
             <span>
               {{this.usuario.endereco.logradouro}}
             </span>
           </div>
+          <div class="col-2">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Número
+            </h6>
+            <span>
+              {{this.usuario.endereco.numero}}
+            </span>
+          </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Complemento
             </h6>
             <span>
@@ -88,7 +96,7 @@
         </div>
         <div class="row">
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Bairro
             </h6>
             <span>
@@ -96,7 +104,7 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Localidade
             </h6>
             <span>
@@ -104,7 +112,7 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Estado
             </h6>
             <span>
@@ -119,7 +127,7 @@
 
         <div class="row">
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Saldo conta Normal
             </h6>
             <span>
@@ -127,7 +135,7 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Saldo conta Eventual
             </h6>
             <span>
@@ -135,7 +143,7 @@
             </span>
           </div>
           <div class="col-4">
-            <h6 class="card-subtitle mb-2 mt-2 text-muted">
+            <h6 class="card-subtitle  mt-2 text-muted">
               Saldo total geral
             </h6>
             <span>
@@ -225,8 +233,7 @@
           <h4 class="modal-title">
             Extrato
           </h4>
-          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
+          <button type="button" class="close" aria-label="Close">
           </button>
         </div>
         <div class="modal-body">
@@ -242,10 +249,10 @@
           <hr>
           <div *ngFor="let op of operacoes">
             <div>
-              Operação: {{op.operacao === 'Depositar' ? 'Deposito' : 'Saque'}}
+              Data: {{op.data | date: 'dd-MM-yyyy HH:mm:ss'}}
             </div>
             <div>
-              Data: {{op.data | date: 'dd-MM-yyyy HH:mm:ss'}}
+              Operação: {{op.operacao === 'Depositar' ? 'Deposito' : 'Saque'}}
             </div>
             <div>
               Valor: {{op.valor}}
