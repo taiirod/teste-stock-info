@@ -51,6 +51,7 @@ export class UsuarioFormComponent implements OnInit {
         .then((endereco: Endereco) => {
           if (endereco != null) {
 
+            this.endereco.cep = endereco.cep;
             this.endereco.logradouro = endereco.logradouro;
             this.endereco.localidade = endereco.localidade;
             this.endereco.bairro = endereco.bairro;

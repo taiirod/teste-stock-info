@@ -149,20 +149,78 @@
   </div>
 
   <div class="row mt-3">
+
+    <!-- Modal  Deposito -->
     <div class="col-4">
-      <button class="btn btn-primary"> Depositar</button>
+      <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalOperacao(modalOperacao)"> Depositar </button>
     </div>
+
     <div class="col-4">
-      <button class="btn btn-primary"> Sacar</button>
+      <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalOperacao(modalOperacao)"> Sacar</button>
     </div>
+
+    <ng-template #modalOperacao let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Sacar
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form #operacaoForm="ngForm" (ngSubmit)="novaOperacao(operacaoForm)">
+          <div class="row">
+
+            <div class="col-4">
+              <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="money" name="valor" class="form-control" id="valor" placeholder="Valor"
+                       ngModel>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label for="operacao">Operação</label>
+                <select name="operacao" class="form-control" id="operacao" ngModel>
+                  <option value="">
+                    Selecione uma operação...
+                  </option>
+                  <option value="Depositar">
+                    Depositar
+                  </option>
+                  <option value="Sacar">
+                    Sacar
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label for="tipoDeConta">Tipo de Conta</label>
+                <select name="tipoDeConta" class="form-control" id="tipoDeConta" ngModel>
+                  <option value="">
+                    Selecione um tipo de conta...
+                  </option>
+                  <option value="Normal">
+                    Normal
+                  </option>
+                  <option value="Eventual">
+                    Eventual
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <button type="submit" class="btn btn-primary mb-2 mr-2"> CONFIRMAR </button>
+    </ng-template>
+
+    <!-- Modal Extrato -->
     <div class="col-4">
-      <button class="btn btn-primary mb-2 mr-2" (click)="openScrollableContent(longContent)">
+      <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalExtrato(modalExtrato)">
         Ver Extrato
       </button>
 
-
-      <!-- Modal -->
-      <ng-template #longContent let-modal>
+      <ng-template #modalExtrato let-modal>
         <div class="modal-header">
           <h4 class="modal-title">
             Extrato
@@ -182,7 +240,7 @@
             CPF: {{this.conta.usuario.cpf}}
           </h6>
           <hr>
-          <div *ngFor="let op of operacao">
+          <div *ngFor="let op of operacoes">
             <div>
               Operação: {{op.operacao}}
             </div>
@@ -208,3 +266,4 @@
 
 
   </div>
+</div>

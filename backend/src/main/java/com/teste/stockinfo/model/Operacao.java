@@ -1,5 +1,6 @@
 package com.teste.stockinfo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.teste.stockinfo.model.enums.OperacaoEnum;
 import com.teste.stockinfo.model.enums.TipoContaEnum;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Operacao {
 
     @Id
