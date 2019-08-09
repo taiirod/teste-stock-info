@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Usuario} from '../model/usuario';
 import {Conta} from '../model/conta';
@@ -15,6 +15,12 @@ export class ContaService {
 
   buscarTodasContas() {
     return this.httpClient.get(this.endpoint).toPromise().then(resp => {
+      return resp;
+    });
+  }
+
+  buscarPorIdUsuario(id: number) {
+    return this.httpClient.get(this.endpoint + '/usuario/' + id).toPromise().then(resp => {
       return resp;
     });
   }

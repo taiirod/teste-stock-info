@@ -36,6 +36,12 @@ public class ContaController {
         return ResponseEntity.ok(conta);
     }
 
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<?> buscarContaPorCpfUsuario(@PathVariable Long id){
+        Conta conta = contaRepository.findByUsuarioId(id);
+        return ResponseEntity.ok(conta);
+    }
+
     @PostMapping
     public ResponseEntity<?> novaConta(@RequestBody Conta conta) {
         conta.setSaldoTotalGeral(conta.getSaldoContaNormal() + conta.getSaldoContaEventual());

@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ContaRepository extends JpaRepository<Conta, Long> {
 
     Conta findByUsuarioCpf(String cpf);
-    Conta findByUsuario_Cpf(String cpf);
+    Conta findByUsuarioId(Long id);
 
 }

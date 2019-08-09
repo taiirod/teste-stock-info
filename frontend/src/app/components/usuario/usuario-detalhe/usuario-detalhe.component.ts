@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuariosService} from '../../../services/usuarios.service';
 import {ActivatedRoute} from '@angular/router';
+import {Usuario} from '../../../model/usuario';
+import {ContaService} from '../../../services/conta.service';
+import {Conta} from '../../../model/conta';
 
 @Component({
   selector: 'app-usuario-detalhe',
@@ -10,14 +13,18 @@ import {ActivatedRoute} from '@angular/router';
 export class UsuarioDetalheComponent implements OnInit {
 
   idUsuario: number;
+  usuario = new Usuario();
+  conta = new Conta();
 
   constructor(private usuarioService: UsuariosService,
+              private contaService: ContaService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-   // this.pegarId();
+    this.pegarId();
     this.buscarPorId();
+    this.buscarContaPorIdUsuario();
   }
 
   pegarId() {
@@ -27,8 +34,17 @@ export class UsuarioDetalheComponent implements OnInit {
   }
 
   buscarPorId() {
-    this.usuarioService.buscarPorId(1).then(usuario => {
-      console.log(usuario);
+    this.usuarioService.buscarPorId(this.idUsuario)
+      .then((usuario: Usuario) => {
+        console.log(usuario);
+        this.usuario = usuario;
+      });
+  }
+
+  buscarContaPorIdUsuario(){
+    this.contaService.buscarPorIdUsuario(this.idUsuario)
+      .then((conta: Conta) => {
+      this.conta = conta;
     });
   }
 

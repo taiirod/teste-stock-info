@@ -1,4 +1,4 @@
-package br.org.sesisc.smart.maintenance.config;
+package com.teste.stockinfo.config;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -29,7 +29,7 @@ public class CorsFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
 
-        response.setHeader("Access-Control-Allow-Origin", originPermitida);
+        response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
 
