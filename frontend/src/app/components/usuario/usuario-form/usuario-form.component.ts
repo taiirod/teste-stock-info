@@ -5,6 +5,8 @@ import {Endereco} from '../../../model/endereco';
 import {Usuario} from '../../../model/usuario';
 import {UsuariosService} from '../../../services/usuarios.service';
 import {Router} from '@angular/router';
+import {ContaService} from '../../../services/conta.service';
+import {Conta} from '../../../model/conta';
 
 @Component({
   selector: 'app-usuario-form',
@@ -15,9 +17,11 @@ export class UsuarioFormComponent implements OnInit {
 
   usuario = new Usuario();
   endereco = new Endereco();
+  conta = new Conta();
   cepNaoEncontrado = false;
 
-  constructor(private enderecoService: EnderecoService,
+  constructor(private contaService: ContaService,
+              private enderecoService: EnderecoService,
               private usuarioService: UsuariosService,
               private router: Router) {
   }
@@ -33,15 +37,13 @@ export class UsuarioFormComponent implements OnInit {
     this.usuario.email = usuarioForm.value.email;
     this.usuario.dataDeNascimento = usuarioForm.value.dataDeNascimento;
 
-    console.log(usuarioForm.value);
 
-    console.log('USUARIO');
-    this.usuarioService.novo(this.usuario).subscribe(resp => {
-      console.log(resp);
-      if (resp != null) {
-        this.router.navigate(['/usuarios']);
-      }
-    });
+    this.usuarioService.novo(this.usuario)
+      .subscribe(usuarioResp => {
+        if (usuarioResp != null) {
+          this.router.navigate(['/usuarios']);
+        }
+      });
   }
 
   buscarPorCep(usuarioForm: NgForm) {

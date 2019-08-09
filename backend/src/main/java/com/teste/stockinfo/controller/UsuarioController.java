@@ -1,6 +1,8 @@
 package com.teste.stockinfo.controller;
 
+import com.teste.stockinfo.model.Conta;
 import com.teste.stockinfo.model.Usuario;
+import com.teste.stockinfo.repository.ContaRepository;
 import com.teste.stockinfo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,9 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private ContaRepository contaRepository;
 
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarPorId(@PathVariable Long id) {
@@ -43,6 +48,14 @@ public class UsuarioController {
                     .status(HttpStatus.BAD_REQUEST)
                     .body("CPF já cadastrado.");
         }
+
+        Conta conta = new Conta();
+
+        conta.setUsuario(novoUsuario);
+
+        Conta c = contaRepository.save(conta);
+
+
 
         return ResponseEntity.ok(novoUsuario);
     }
