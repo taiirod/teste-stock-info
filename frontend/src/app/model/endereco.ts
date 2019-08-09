@@ -1,4 +1,4 @@
-export interface Endereco {
+/*export interface EnderecoModel {
 
   cep: string;
   logradouro: string;
@@ -8,5 +8,13 @@ export interface Endereco {
   uf: string;
 
 
-}
+}*/
 
+export class Endereco {
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+}

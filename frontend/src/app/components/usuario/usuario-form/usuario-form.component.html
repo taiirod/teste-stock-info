@@ -30,8 +30,7 @@
           <div class="form-group">
             <label for="sexo">Sexo</label>
             <select name="sexo" class="form-control" id="sexo"
-                    ngModel>
-              <option selected> Sexo </option>
+                    [ngModel]="'Sexo'">
               <option value="Masculino">Masculino</option>
               <option value="Feminino">Feminino</option>
             </select>
@@ -42,6 +41,63 @@
             <label for="email">E-mail</label>
             <input type="email" name="email" class="form-control" id="email" placeholder="E-mail"
                    ngModel>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="dataNascimento">Data de nascimento</label>
+            <input type="email" name="dataNascimento" class="form-control" id="dataNascimento" placeholder="E-mail"
+                   ngModel>
+          </div>
+        </div>
+      </div>
+
+      <h2>Endereço</h2>
+
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="cep">CEP</label>
+            <input type="email" name="cep" class="form-control" id="cep" placeholder="CEP"
+                   ngModel (input)="buscarPorCep(usuarioForm)">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="logradouro">Logradouro</label>
+            <input type="text" name="logradouro" class="form-control" id="logradouro" placeholder="Logradouro"
+                   [(ngModel)]="this.endereco.logradouro">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="complemento">Complemento</label>
+            <input type="email" name="complemento" class="form-control" id="complemento" placeholder="Complemento"
+                   ngModel>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="texto" name="bairro" class="form-control" id="bairro" placeholder="Bairro"
+                   [(ngModel)]="this.endereco.bairro">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="localidade">Localidade</label>
+            <input type="text" name="localidade" class="form-control" id="localidade" placeholder="Localidade"
+                   [(ngModel)]="this.endereco.localidade">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="uf">Estado</label>
+            <input type="text" name="uf" class="form-control" id="uf" placeholder="Estado"
+                   [(ngModel)]="this.endereco.uf" maxlength="2">
           </div>
         </div>
       </div>
