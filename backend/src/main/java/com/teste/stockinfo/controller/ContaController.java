@@ -38,6 +38,7 @@ public class ContaController {
 
     @PostMapping
     public ResponseEntity<?> novaConta(@RequestBody Conta conta) {
+        conta.setSaldoTotalGeral(conta.getSaldoContaNormal() + conta.getSaldoContaEventual());
         return contaService.criarConta(conta);
     }
 

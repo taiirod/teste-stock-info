@@ -14,7 +14,7 @@
           <div class="form-group">
             <label for="cpf">CPF</label>
             <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF"
-                   ngModel>
+                   ngModel maxlength="11">
           </div>
         </div>
         <div class="col-4">
@@ -45,8 +45,8 @@
         </div>
         <div class="col-4">
           <div class="form-group">
-            <label for="dataNascimento">Data de nascimento</label>
-            <input type="email" name="dataNascimento" class="form-control" id="dataNascimento" placeholder="E-mail"
+            <label for="dataDeNascimento">Data de nascimento</label>
+            <input type="email" name="dataDeNascimento" class="form-control" id="dataDeNascimento" placeholder="Data de nascimento"
                    ngModel>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <div class="form-group">
             <label for="cep">CEP</label>
             <input type="email" name="cep" class="form-control" id="cep" placeholder="CEP"
-                   ngModel (input)="buscarPorCep(usuarioForm)">
+                   ngModel (input)="buscarPorCep(usuarioForm)" maxlength="8">
           </div>
         </div>
         <div class="col-4">
@@ -102,7 +102,18 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary"> Adicionar</button>
+      <div class="row">
+        <div class="col-4">
+          <button type="submit" class="btn btn-primary">
+            Adicionar
+          </button>
+        </div>
+        <div class="col-4">
+          <div *ngIf="cepNaoEncontrado" class="alert alert-danger" role="alert">
+            CEP não encontrado.
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 

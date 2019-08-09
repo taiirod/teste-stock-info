@@ -119,8 +119,6 @@ public class ContaService {
                     .body("Usuário já possui uma conta.");
         }
 
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body("Conta criada com sucesso.");
+        return ResponseEntity.ok(novaConta);
     }
 }

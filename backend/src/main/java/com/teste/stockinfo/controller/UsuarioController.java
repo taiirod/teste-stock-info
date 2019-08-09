@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
@@ -18,11 +18,18 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> buscarPorId(@PathVariable Long id) {
+        Usuario usuario = usuarioRepository.getOne(id);
+        return ResponseEntity.ok(usuario);
+    }
+
     @GetMapping
     public List<Usuario> buscarTodos() {
         List<Usuario> list = usuarioRepository.findAll();
         return list;
     }
+
 
     @PostMapping
     public ResponseEntity<?> novo(@Valid @RequestBody Usuario usuario) {

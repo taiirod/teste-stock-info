@@ -12,14 +12,14 @@
           <div class="col-4">
             <div class="card-body">
               <h5>
-                Nome
+                Conta
               </h5>
             </div>
           </div>
           <div class="col-4">
             <div class="card-body">
               <h5>
-                CPF
+                Nome Completo
               </h5>
             </div>
           </div>
@@ -34,28 +34,28 @@
       </div>
     </div>
   </div>
-  <div class="card" *ngFor="let u of todosUsuarios; let i = index">
+  <div class="card" *ngFor="let c of todasContas; let i = index">
     <a routerLink="/conta/{{i+1}}">
       <div class="col-12">
         <div class="row text-center">
           <div class="col-4">
             <div class="card-body">
               <h6>
-                {{u.nomeCompleto}}
+                {{c.id}}
               </h6>
             </div>
           </div>
           <div class="col-4">
             <div class="card-body">
               <h6>
-                {{u.cpf}}
+                {{c.usuario.nomeCompleto}}
               </h6>
             </div>
           </div>
           <div class="col-4">
             <div class="card-body">
               <h6>
-                {{u.telefone}}
+                {{c.usuario.telefone}}
               </h6>
             </div>
           </div>

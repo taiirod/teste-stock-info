@@ -1,1 +1,26 @@
-<p>conta-form works!</p>
+<div class="container">
+
+  <div class="col-12">
+    <form #contaForm="ngForm" (ngSubmit)="novaConta(contaForm)">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="usuario">Usuários</label>
+          <select name="usuario" class="form-control" id="usuario" ngModel>
+            <option selected> Selecione um usuário...</option>
+            <option *ngFor="let u of todosUsuarios" [value]="u.id">
+              {{u.nomeCompleto}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary">
+        Adicionar
+      </button>
+
+    </form>
+  </div>
+
+
+</div>

@@ -1,11 +1,14 @@
 package com.teste.stockinfo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.teste.stockinfo.model.enums.SexoEnum;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Usuario {
 
     @Id
@@ -23,6 +26,7 @@ public class Usuario {
 
     @Column(name = "data_de_nascimento")
     private Date dataDeNascimento;
+
     private String email;
     private String telefone;
 

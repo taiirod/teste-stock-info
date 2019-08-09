@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Conta} from '../../model/conta';
+import {Usuario} from '../../model/usuario';
+import {ContaService} from '../../services/conta.service';
 
 @Component({
   selector: 'app-conta',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContaComponent implements OnInit {
 
-  constructor() { }
+  todasContas: Conta[];
+
+  constructor(private contaService: ContaService) { }
 
   ngOnInit() {
+    this.buscarTodasContas();
   }
 
+  buscarTodasContas() {
+    this.contaService.buscarTodasContas().then(
+      (resp: Conta[]) => {
+        this.todasContas = resp;
+      });
+  }
 }

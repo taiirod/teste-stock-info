@@ -13,6 +13,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { UsuarioFormComponent } from './components/usuario/usuario-form/usuario-form.component';
 import { ContaComponent } from './components/conta/conta.component';
 import { ContaFormComponent } from './components/conta/conta-form/conta-form.component';
+import { UsuarioDetalheComponent } from './components/usuario/usuario-detalhe/usuario-detalhe.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContaFormComponent } from './components/conta/conta-form/conta-form.com
     InicioComponent,
     UsuarioFormComponent,
     ContaComponent,
-    ContaFormComponent
+    ContaFormComponent,
+    UsuarioDetalheComponent
   ],
   imports: [
     BrowserModule,

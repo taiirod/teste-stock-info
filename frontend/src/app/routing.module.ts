@@ -5,17 +5,19 @@ import {UsuarioComponent} from './components/usuario/usuario.component';
 import {InicioComponent} from './components/inicio/inicio.component';
 import {UsuarioFormComponent} from './components/usuario/usuario-form/usuario-form.component';
 import {ContaComponent} from './components/conta/conta.component';
+import {ContaFormComponent} from './components/conta/conta-form/conta-form.component';
+import {UsuarioDetalheComponent} from './components/usuario/usuario-detalhe/usuario-detalhe.component';
 
 const appRoutes: Routes = [
   {path: 'inicio', component: InicioComponent},
   {path: 'usuarios', component: UsuarioComponent},
-  {path: 'usuario/:id', component: UsuarioFormComponent},
   {path: 'usuario/novo', component: UsuarioFormComponent},
-  {path: 'contas', component: ContaComponent}
-  //{path: 'conta/:id', component: ContaComponent}
-  //{path: 'conta/nova', component: ContaComponent}
-  //{path: 'saque', component: SaqueComponent}
-  //{path: 'deposito', component: DepositoComponent}
+  {path: 'usuario/:id', component: UsuarioDetalheComponent},
+  {path: 'contas', component: ContaComponent},
+  //{path: 'conta/:id', component: ContaComponent},
+  {path: 'conta/nova', component: ContaFormComponent},
+  //{path: 'saque', component: SaqueComponent},
+  //{path: 'deposito', component: DepositoComponent},
 
 ];
 
@@ -23,7 +25,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: true} // <-- debugging purposes only
+      {enableTracing: false} // <-- debugging purposes only
     )
     // other imports here
   ]
