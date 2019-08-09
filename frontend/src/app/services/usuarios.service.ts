@@ -20,7 +20,7 @@ export class UsuariosService {
 
   buscarPorId(id: number) {
     return this.httpClient.get(this.endpoint + '/' + id).toPromise().then(resp => {
-      console.log(resp)
+      console.log(resp);
       return resp;
     });
   }

@@ -5,6 +5,8 @@ import {Usuario} from '../../../model/usuario';
 import {ContaService} from '../../../services/conta.service';
 import {Conta} from '../../../model/conta';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {OperacaoService} from '../../../services/operacao.service';
+import {Operacao} from '../../../model/operacao';
 
 @Component({
   selector: 'app-usuario-detalhe',
@@ -16,9 +18,11 @@ export class UsuarioDetalheComponent implements OnInit {
   idUsuario: number;
   usuario = new Usuario();
   conta = new Conta();
+  operacao = new Operacao();
 
   constructor(private usuarioService: UsuariosService,
               private contaService: ContaService,
+              private operacaoService: OperacaoService,
               private route: ActivatedRoute,
               private modalService: NgbModal) {
   }
@@ -43,15 +47,20 @@ export class UsuarioDetalheComponent implements OnInit {
       });
   }
 
-  buscarContaPorIdUsuario(){
+  buscarContaPorIdUsuario() {
     this.contaService.buscarPorIdUsuario(this.idUsuario)
       .then((conta: Conta) => {
-      this.conta = conta;
-    });
+        this.conta = conta;
+        this.operacaoService.extratoDaConta(this.conta.id)
+          .then((operacao: Operacao) => {
+            this.operacao = operacao;
+          });
+      });
   }
 
+
   openScrollableContent(longContent) {
-    this.modalService.open(longContent, { scrollable: true });
+    this.modalService.open(longContent, {scrollable: true});
   }
 }
 

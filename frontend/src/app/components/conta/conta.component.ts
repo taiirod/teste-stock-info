@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Conta} from '../../model/conta';
-import {Usuario} from '../../model/usuario';
 import {ContaService} from '../../services/conta.service';
 
 @Component({
@@ -12,7 +11,8 @@ export class ContaComponent implements OnInit {
 
   todasContas: Conta[];
 
-  constructor(private contaService: ContaService) { }
+  constructor(private contaService: ContaService) {
+  }
 
   ngOnInit() {
     this.buscarTodasContas();

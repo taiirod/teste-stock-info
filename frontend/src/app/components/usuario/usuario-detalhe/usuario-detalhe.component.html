@@ -150,10 +150,10 @@
 
   <div class="row mt-3">
     <div class="col-4">
-      <button class="btn btn-primary"> Depositar </button>
+      <button class="btn btn-primary"> Depositar</button>
     </div>
     <div class="col-4">
-      <button class="btn btn-primary"> Sacar </button>
+      <button class="btn btn-primary"> Sacar</button>
     </div>
     <div class="col-4">
       <button class="btn btn-primary mb-2 mr-2" (click)="openScrollableContent(longContent)">
@@ -172,14 +172,24 @@
           </button>
         </div>
         <div class="modal-body">
-
-
+          <h6>
+            Conta: {{this.conta.id}}
+          </h6>
+          <h6>
+            Nome Completo: {{this.conta.usuario.nomeCompleto}}
+          </h6>
+          <h6>
+            CPF: {{this.conta.usuario.cpf}}
+          </h6>
+          <hr>
+          <div>
+            Operação:
+          </div>
         </div>
       </ng-template>
 
 
+    </div>
+
+
   </div>
-
-
-
-</div>

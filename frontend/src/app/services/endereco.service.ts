@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class EnderecoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  buscarEndereco(cep: string){
+  buscarEndereco(cep: string) {
     return this.httpClient.get(this.endpoint + cep + '/json/').toPromise().then(endereco => {
       return endereco;
     });
