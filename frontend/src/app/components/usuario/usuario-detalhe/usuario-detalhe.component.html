@@ -150,13 +150,13 @@
 
   <div class="row mt-3">
 
-    <!-- Modal  Deposito -->
+    <!-- Modal  Operações -->
     <div class="col-4">
       <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalOperacao(modalOperacao)"> Depositar </button>
     </div>
 
     <div class="col-4">
-      <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalOperacao(modalOperacao)"> Sacar</button>
+      <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalOperacao(modalOperacao)"> Sacar </button>
     </div>
 
     <ng-template #modalOperacao let-modal>
@@ -168,7 +168,6 @@
       <div class="modal-body">
         <form #operacaoForm="ngForm" (ngSubmit)="novaOperacao(operacaoForm)">
           <div class="row">
-
             <div class="col-4">
               <div class="form-group">
                 <label for="valor">Valor</label>
@@ -243,7 +242,10 @@
           <hr>
           <div *ngFor="let op of operacoes">
             <div>
-              Operação: {{op.operacao}}
+              Operação: {{op.operacao === 'Depositar' ? 'Deposito' : 'Saque'}}
+            </div>
+            <div>
+              Data: {{op.data | date: 'dd-MM-yyyy HH:mm:ss'}}
             </div>
             <div>
               Valor: {{op.valor}}
