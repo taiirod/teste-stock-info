@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="095b7e00-67b1-4b68-a293-84972680a2c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/model/enums/OperacaoEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/controller/ContaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/controller/ContaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/controller/DepositoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/controller/OperacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/controller/SaqueController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/dto/DepositoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/dto/OperacaoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/dto/SaqueDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/model/Deposito.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/model/Operacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/model/Saque.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/repository/DepositoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/repository/OperacaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/repository/SaqueRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/service/ContaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/teste/stockinfo/service/ContaService.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1PBlHVYNaCXsiKuuu6kYfQctu3w" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="095b7e00-67b1-4b68-a293-84972680a2c6" name="Default Changelist" comment="" />
+      <created>1565355282822</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565355282822</updated>
+      <workItem from="1565355284188" duration="5000" />
+    </task>
+    <servers />
+  </component>
+</project>

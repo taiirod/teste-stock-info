@@ -1,13 +1,16 @@
 package com.teste.stockinfo.dto;
 
+import com.teste.stockinfo.model.enums.OperacaoEnum;
+
 import java.util.Date;
 
-public class SaqueDTO {
+public class OperacaoDTO {
 
     private Long conta;
     private String tipoDeConta;
     private Double valor;
     private Date data;
+    private OperacaoEnum operacao;
 
     public Double getValor() {
         return valor;
@@ -39,5 +42,13 @@ public class SaqueDTO {
 
     public void setConta(Long conta) {
         this.conta = conta;
+    }
+
+    public OperacaoEnum getOperacao() {
+        return operacao;
+    }
+
+    public void setOperacao(OperacaoEnum operacao) {
+        this.operacao = operacao;
     }
 }

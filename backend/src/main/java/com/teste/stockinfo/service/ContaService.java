@@ -1,13 +1,11 @@
 package com.teste.stockinfo.service;
 
 import com.teste.stockinfo.model.Conta;
-import com.teste.stockinfo.model.Deposito;
-import com.teste.stockinfo.model.Saque;
+import com.teste.stockinfo.model.Operacao;
 import com.teste.stockinfo.model.Usuario;
 import com.teste.stockinfo.model.enums.TipoContaEnum;
 import com.teste.stockinfo.repository.ContaRepository;
-import com.teste.stockinfo.repository.DepositoRepository;
-import com.teste.stockinfo.repository.SaqueRepository;
+import com.teste.stockinfo.repository.OperacaoRepository;
 import com.teste.stockinfo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,12 +27,9 @@ public class ContaService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private DepositoRepository depositoRepository;
+    private OperacaoRepository operacaoRepository;
 
-    @Autowired
-    private SaqueRepository saqueRepository;
-
-    public ResponseEntity<?> sacar(@PathVariable Conta idConta, @RequestBody Saque saque) {
+    public ResponseEntity<?> sacar(@PathVariable Conta idConta, @RequestBody Operacao saque) {
         Conta c = contaRepository.getOne(idConta.getId());
 
         Date date = new Date();
@@ -70,13 +65,13 @@ public class ContaService {
             }
         }
 
-        saqueRepository.save(saque);
+        operacaoRepository.save(saque);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("Saque efetuado com sucesso.");
     }
 
-    public ResponseEntity<?> depositar(@PathVariable Conta idConta, @RequestBody Deposito deposito) {
+    public ResponseEntity<?> depositar(@PathVariable Conta idConta, @RequestBody Operacao deposito) {
         Conta c = contaRepository.getOne(idConta.getId());
 
         Date date = new Date();
@@ -100,7 +95,7 @@ public class ContaService {
             contaRepository.save(c);
         }
 
-        depositoRepository.save(deposito);
+        operacaoRepository.save(deposito);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("Deposito efetuado com sucesso.");

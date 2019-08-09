@@ -1,12 +1,13 @@
 package com.teste.stockinfo.model;
 
+import com.teste.stockinfo.model.enums.OperacaoEnum;
 import com.teste.stockinfo.model.enums.TipoContaEnum;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Deposito {
+public class Operacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,9 @@ public class Deposito {
 
     @ManyToOne
     private Conta conta;
+
+    @Enumerated(EnumType.STRING)
+    private OperacaoEnum operacao;
 
     public Long getId() {
         return id;
@@ -60,5 +64,13 @@ public class Deposito {
 
     public void setConta(Conta conta) {
         this.conta = conta;
+    }
+
+    public OperacaoEnum getOperacao() {
+        return operacao;
+    }
+
+    public void setOperacao(OperacaoEnum operacao) {
+        this.operacao = operacao;
     }
 }
