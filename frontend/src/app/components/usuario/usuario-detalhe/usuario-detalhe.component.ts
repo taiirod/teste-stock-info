@@ -18,7 +18,7 @@ export class UsuarioDetalheComponent implements OnInit {
   idUsuario: number;
   usuario = new Usuario();
   conta = new Conta();
-  operacao = new Operacao();
+  operacao: Operacao[];
 
   constructor(private usuarioService: UsuariosService,
               private contaService: ContaService,
@@ -52,7 +52,7 @@ export class UsuarioDetalheComponent implements OnInit {
       .then((conta: Conta) => {
         this.conta = conta;
         this.operacaoService.extratoDaConta(this.conta.id)
-          .then((operacao: Operacao) => {
+          .then((operacao: Operacao[]) => {
             this.operacao = operacao;
           });
       });

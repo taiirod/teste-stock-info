@@ -182,8 +182,23 @@
             CPF: {{this.conta.usuario.cpf}}
           </h6>
           <hr>
-          <div>
-            Operação:
+          <div *ngFor="let op of operacao">
+            <div>
+              Operação: {{op.operacao}}
+            </div>
+            <div>
+              Valor: {{op.valor}}
+            </div>
+            <div>
+              Tipo Conta: {{op.tipoDeConta}}
+            </div>
+            <div *ngIf="op.tipoDeConta == 'Normal'">
+              Saldo atual da conta: {{this.conta.saldoContaNormal}}
+            </div>
+            <div *ngIf="op.tipoDeConta == 'Eventual'">
+              Saldo atual da conta: {{this.conta.saldoContaEventual}}
+            </div>
+            <hr>
           </div>
         </div>
       </ng-template>
