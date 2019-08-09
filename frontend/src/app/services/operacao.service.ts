@@ -18,14 +18,8 @@ export class OperacaoService {
     });
   }
 
-  depositar(idConta: number, operacao: Operacao) {
-    return this.httpClient.put(this.endpoint + '/depositar/' + idConta, operacao).toPromise().then(resp => {
-      return resp;
-    });
-  }
-
-  sacar(idConta: number, operacao: Operacao) {
-    return this.httpClient.put(this.endpoint + '/sacar/' + idConta, operacao).toPromise().then(resp => {
+  efetuarOperacao(idConta: number, operacao: Operacao) {
+    return this.httpClient.put(this.endpoint + '/' + idConta, operacao).toPromise().then(resp => {
       return resp;
     });
   }

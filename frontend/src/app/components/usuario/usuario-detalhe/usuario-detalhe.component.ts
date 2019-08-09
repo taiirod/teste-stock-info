@@ -9,6 +9,7 @@ import {OperacaoService} from '../../../services/operacao.service';
 import {Operacao} from '../../../model/operacao';
 import {TipoDeConta} from '../../../model/enum/tipo-de-conta.enum';
 import {NgForm} from '@angular/forms';
+import {TitleService} from '../../../services/title.service';
 
 @Component({
   selector: 'app-usuario-detalhe',
@@ -27,7 +28,8 @@ export class UsuarioDetalheComponent implements OnInit {
               private contaService: ContaService,
               private operacaoService: OperacaoService,
               private route: ActivatedRoute,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
@@ -45,7 +47,6 @@ export class UsuarioDetalheComponent implements OnInit {
   buscarPorId() {
     this.usuarioService.buscarPorId(this.idUsuario)
       .then((usuario: Usuario) => {
-        console.log(usuario);
         this.usuario = usuario;
       });
   }
@@ -66,9 +67,16 @@ export class UsuarioDetalheComponent implements OnInit {
     this.modalService.open(modalExtrato, {scrollable: true});
   }
 
+
+
   abrirModalOperacao(modalSaque) {
-    this.modalService.open(modalSaque, {size: 'xl'});
+    const modal = this.modalService.open(modalSaque, {size: 'xl'});
+    modal.result.then(() => {
+    }, () => {
+      this.buscarContaPorIdUsuario();
+    });
   }
+
 
   novaOperacao(operacaoForm: NgForm) {
 
@@ -76,15 +84,11 @@ export class UsuarioDetalheComponent implements OnInit {
     this.operacao.tipoDeConta = operacaoForm.value.tipoDeConta;
     this.operacao.operacao = operacaoForm.value.operacao;
 
-    if (operacaoForm.value.operacao === 'Depositar') {
-      this.operacaoService.depositar(this.conta.id, this.operacao).then(resp => {
-        console.log(resp);
-      });
-
-    } else if (operacaoForm.value.operacao === 'Sacar') {
-
-    }
-    console.log(this.operacao);
+    this.operacaoService.efetuarOperacao(this.conta.id, this.operacao).then(resp => {
+      if (resp != null) {
+        this.modalService.dismissAll();
+      }
+    });
   }
 }
 

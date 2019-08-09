@@ -5,6 +5,7 @@ import com.teste.stockinfo.model.Conta;
 import com.teste.stockinfo.model.Operacao;
 import com.teste.stockinfo.repository.ContaRepository;
 import com.teste.stockinfo.service.ContaService;
+import com.teste.stockinfo.service.OperacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,16 +44,4 @@ public class ContaController {
         conta.setSaldoTotalGeral(conta.getSaldoContaNormal() + conta.getSaldoContaEventual());
         return contaService.criarConta(conta);
     }
-
-    @PutMapping("/depositar/{idConta}")
-    public ResponseEntity<?> depositar(@PathVariable Conta idConta, @RequestBody Operacao deposito) {
-        return contaService.depositar(idConta, deposito);
-    }
-
-    @PutMapping("/sacar/{idConta}")
-    public ResponseEntity<?> sacar(@PathVariable Conta idConta, @RequestBody Operacao saque) {
-        return contaService.sacar(idConta, saque);
-    }
-
-
 }

@@ -8,13 +8,55 @@ import {ContaFormComponent} from './components/conta/conta-form/conta-form.compo
 import {UsuarioDetalheComponent} from './components/usuario/usuario-detalhe/usuario-detalhe.component';
 
 const appRoutes: Routes = [
-  {path: 'inicio', component: InicioComponent},
-  {path: 'usuarios', component: UsuarioComponent},
-  {path: 'usuario/novo', component: UsuarioFormComponent},
-  {path: 'usuario/:id', component: UsuarioDetalheComponent},
-  {path: 'contas', component: ContaComponent},
-  {path: 'conta/nova', component: ContaFormComponent},
-  {path: 'conta/:id', component: ContaComponent},
+  {
+    path: 'inicio',
+    component: InicioComponent,
+    data: {
+      title: 'Início'
+    }
+  },
+  {
+    path: 'usuarios',
+    component: UsuarioComponent,
+    data: {
+      title: 'Usuários'
+    }
+  },
+  {
+    path: 'usuario/novo',
+    component: UsuarioFormComponent,
+    data: {
+      title: 'Novo Usuário'
+    }
+  },
+  {
+    path: 'usuario/:id',
+    component: UsuarioDetalheComponent,
+    data: {
+      title: 'Usuário'
+    }
+  },
+  {
+    path: 'contas',
+    component: ContaComponent,
+    data: {
+      title: 'Início'
+    }
+  },
+  {
+    path: 'conta/nova',
+    component: ContaFormComponent,
+    data: {
+      title: 'Início'
+    }
+  },
+  {
+    path: 'conta/:id',
+    component: ContaComponent,
+    data: {
+      title: 'Início'
+    }
+  },
 
 ];
 

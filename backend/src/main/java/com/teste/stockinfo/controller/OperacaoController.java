@@ -2,13 +2,13 @@ package com.teste.stockinfo.controller;
 
 import com.teste.stockinfo.dto.OperacaoDTO;
 import com.teste.stockinfo.dto.OperacaoDTO;
+import com.teste.stockinfo.model.Conta;
 import com.teste.stockinfo.model.Operacao;
 import com.teste.stockinfo.repository.OperacaoRepository;
+import com.teste.stockinfo.service.OperacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,9 @@ public class OperacaoController {
 
     @Autowired
     private OperacaoRepository operacaoRepository;
+
+    @Autowired
+    private OperacaoService operacaoService;
 
     @GetMapping("/todas")
     public List<?> todasOperacoes() {
@@ -64,5 +67,10 @@ public class OperacaoController {
         }
 
         return listTreated;
+    }
+
+    @PutMapping("/{idConta}")
+    public ResponseEntity<?> efetuarOperacao(@PathVariable Long idConta, @RequestBody Operacao deposito) {
+        return operacaoService.efetuarOperacao(idConta, deposito);
     }
 }

@@ -18,6 +18,7 @@ import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import {ContaService} from './services/conta.service';
 import {OperacaoService} from './services/operacao.service';
 import {EnderecoService} from './services/endereco.service';
+import {TitleService} from './services/title.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {EnderecoService} from './services/endereco.service';
     UsuariosService,
     ContaService,
     OperacaoService,
-    EnderecoService
+    EnderecoService,
+    TitleService
   ],
   bootstrap: [AppComponent]
 })
