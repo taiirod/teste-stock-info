@@ -156,8 +156,30 @@
       <button class="btn btn-primary"> Sacar </button>
     </div>
     <div class="col-4">
-      <button class="btn btn-primary"> Ver Extrato</button>
-    </div>
+      <button class="btn btn-primary mb-2 mr-2" (click)="openScrollableContent(longContent)">
+        Ver Extrato
+      </button>
+
+
+      <!-- Modal -->
+      <ng-template #longContent let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">
+            Extrato
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+
+        </div>
+      </ng-template>
+
+
   </div>
+
+
 
 </div>

@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   {path: 'usuario/novo', component: UsuarioFormComponent},
   {path: 'usuario/:id', component: UsuarioDetalheComponent},
   {path: 'contas', component: ContaComponent},
-  //{path: 'conta/:id', component: ContaComponent},
+  {path: 'conta/:id', component: ContaComponent},
   {path: 'conta/nova', component: ContaFormComponent},
   //{path: 'saque', component: SaqueComponent},
   //{path: 'deposito', component: DepositoComponent},

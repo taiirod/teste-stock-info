@@ -14,6 +14,7 @@ import { UsuarioFormComponent } from './components/usuario/usuario-form/usuario-
 import { ContaComponent } from './components/conta/conta.component';
 import { ContaFormComponent } from './components/conta/conta-form/conta-form.component';
 import { UsuarioDetalheComponent } from './components/usuario/usuario-detalhe/usuario-detalhe.component';
+import {NgbModal, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UsuarioDetalheComponent } from './components/usuario/usuario-detalhe/us
     HttpClientModule,
     RoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgbModalModule
   ],
   providers: [
     UsuariosService

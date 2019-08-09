@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Usuario} from '../../../model/usuario';
 import {ContaService} from '../../../services/conta.service';
 import {Conta} from '../../../model/conta';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-usuario-detalhe',
@@ -18,7 +19,8 @@ export class UsuarioDetalheComponent implements OnInit {
 
   constructor(private usuarioService: UsuariosService,
               private contaService: ContaService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private modalService: NgbModal) {
   }
 
   ngOnInit() {
@@ -48,5 +50,8 @@ export class UsuarioDetalheComponent implements OnInit {
     });
   }
 
+  openScrollableContent(longContent) {
+    this.modalService.open(longContent, { scrollable: true });
+  }
 }
 
