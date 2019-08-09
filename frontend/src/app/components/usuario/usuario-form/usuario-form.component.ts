@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {EnderecoService} from '../../../services/endereco.service';
 import {Endereco} from '../../../model/endereco';
 import {Usuario} from '../../../model/usuario';
+import {UsuariosService} from '../../../services/usuarios.service';
 
 @Component({
   selector: 'app-usuario-form',
@@ -14,15 +15,25 @@ export class UsuarioFormComponent implements OnInit {
   usuario = new Usuario();
   endereco = new Endereco();
 
-  constructor(private enderecoService: EnderecoService) {
+  constructor(private enderecoService: EnderecoService,
+              private usuarioService: UsuariosService) {
   }
 
   ngOnInit() {
   }
 
   novoUsuario(usuarioForm: NgForm) {
-    console.log('Salvando.....');
-    console.log(usuarioForm);
+    this.usuario.nomeCompleto = usuarioForm.value.nomeCompleto;
+    this.usuario.cpf = usuarioForm.value.cpf;
+    this.usuario.telefone = usuarioForm.value.telefone;
+    this.usuario.sexo = usuarioForm.value.sexo;
+    this.usuario.email = usuarioForm.value.email;
+    this.usuario.dataDeNascimento = usuarioForm.value.dataDeNascimento;
+
+    console.log('USUARIO');
+    this.usuarioService.novo(this.usuario).subscribe(resp => {
+      console.log(resp);
+    });
   }
 
   buscarPorCep(usuarioForm: NgForm) {
@@ -37,10 +48,8 @@ export class UsuarioFormComponent implements OnInit {
           this.endereco.uf = endereco.uf;
 
           this.usuario.endereco = this.endereco;
-          console.log('USUARIO', this.usuario);
 
-
-
+          console.log('ENDERECO');
           return usuarioForm;
         }
       });
