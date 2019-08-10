@@ -25,6 +25,7 @@ public class Usuario {
     private Integer idade;
 
     @Column(name = "data_de_nascimento")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dataDeNascimento;
 
     private String email;

@@ -5,15 +5,14 @@ import com.teste.stockinfo.model.Usuario;
 import com.teste.stockinfo.repository.ContaRepository;
 import com.teste.stockinfo.repository.UsuarioRepository;
 import com.teste.stockinfo.service.UsuarioService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
@@ -42,9 +41,12 @@ public class UsuarioController {
 
 
     @PostMapping
-    public ResponseEntity<?> novo(@Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<?> novo(@RequestBody Usuario usuario) {
 
         Usuario novoUsuario = new Usuario();
+
+        Date date = new Date();
+        date.getTime();
 
         if (usuarioRepository.findByCpf(usuario.getCpf()) == null) {
             novoUsuario = usuarioRepository.save(usuario);
@@ -55,26 +57,25 @@ public class UsuarioController {
         }
 
         Conta conta = new Conta();
-
         conta.setUsuario(novoUsuario);
         conta.setSaldoContaEventual(0.0);
         conta.setSaldoContaNormal(0.0);
 
-        Conta c = contaRepository.save(conta);
 
+        Conta c = contaRepository.save(conta);
         return ResponseEntity.ok(novoUsuario);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable Long id,@Valid @RequestBody Usuario usuario){
+    public ResponseEntity<?> editar(@PathVariable Long id, @Valid @RequestBody Usuario usuario) {
         return usuarioRepository.findById(id)
                 .map(resp -> {
-            resp.setEmail(usuario.getEmail());
-            resp.setTelefone(usuario.getEmail());
-            resp.setEndereco(usuario.getEndereco());
-            Usuario usuarioAtualizado = usuarioRepository.save(resp);
-            return ResponseEntity.ok().body(usuarioAtualizado);
+                    resp.setEmail(usuario.getEmail());
+                    resp.setTelefone(usuario.getEmail());
+                    resp.setEndereco(usuario.getEndereco());
+                    Usuario usuarioAtualizado = usuarioRepository.save(resp);
+                    return ResponseEntity.ok().body(usuarioAtualizado);
 
-        }).orElse(ResponseEntity.notFound().build());
+                }).orElse(ResponseEntity.notFound().build());
     }
 }

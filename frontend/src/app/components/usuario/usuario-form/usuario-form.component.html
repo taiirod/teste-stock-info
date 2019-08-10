@@ -14,14 +14,14 @@
           <div class="form-group">
             <label for="cpf">CPF</label>
             <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF"
-                   ngModel maxlength="11">
+                   ngModel maxlength="14" mask='000.000.000-00'>
           </div>
         </div>
         <div class="col-4">
           <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input type="phone" name="telefone" class="form-control" id="telefone" placeholder="Telefone"
-                   ngModel>
+            <input type="phone" name="telefone"  maxlength="15" class="form-control" id="telefone" placeholder="Telefone"
+                   ngModel mask='(00) 00000-0000'>
           </div>
         </div>
       </div>
@@ -65,8 +65,8 @@
         <div class="col-2">
           <div class="form-group">
             <label for="cep">CEP</label>
-            <input type="email" name="cep" class="form-control" id="cep" placeholder="CEP"
-                   ngModel (input)="buscarPorCep(usuarioForm)" maxlength="8">
+            <input type="text" name="cep" class="form-control" id="cep" placeholder="CEP"
+                   ngModel (input)="buscarPorCep(usuarioForm)" maxlength="9" mask='00000-000'>
           </div>
         </div>
         <div class="col-4">

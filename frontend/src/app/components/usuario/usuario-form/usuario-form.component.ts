@@ -60,6 +60,8 @@ export class UsuarioFormComponent implements OnInit {
             this.endereco.bairro = endereco.bairro;
             this.endereco.uf = endereco.uf;
 
+            this.endereco.cep.replace('-', '');
+            console.log(this.endereco.cep);
             this.usuario.endereco = this.endereco;
 
           } else {

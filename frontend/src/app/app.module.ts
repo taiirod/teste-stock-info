@@ -19,6 +19,9 @@ import {ContaService} from './services/conta.service';
 import {OperacaoService} from './services/operacao.service';
 import {EnderecoService} from './services/endereco.service';
 import {TitleService} from './services/title.service';
+import {IConfig, NgxMaskModule} from 'ngx-mask';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import {TitleService} from './services/title.service';
     ContaComponent,
     ContaFormComponent,
     UsuarioDetalheComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,8 @@ import {TitleService} from './services/title.service';
     RoutingModule,
     RouterModule,
     FormsModule,
-    NgbModalModule
+    NgbModalModule,
+    NgxMaskModule.forRoot(options)
   ],
   providers: [
     UsuariosService,

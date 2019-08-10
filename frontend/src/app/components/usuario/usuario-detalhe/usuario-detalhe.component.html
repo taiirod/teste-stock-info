@@ -19,7 +19,7 @@
       </button>
     </div>
 
-    <!-- MODAL DE OPERAÇÕES -->
+    <!-- MODAL DE DEPOSITO -->
     <ng-template #depositoModal let-modal>
       <div class="modal-header">
         <h4 class="modal-title">
@@ -32,14 +32,15 @@
             <div class="col-6">
               <div class="form-group">
                 <label for="valor">Valor</label>
-                <input type="money" name="valor" class="form-control" id="valor" placeholder="Valor"
+                <input type="money" mask="dot_separator.2" name="valor" class="form-control" id="valor"
+                       placeholder="Valor"
                        ngModel>
               </div>
             </div>
             <div class="col-6">
               <div class="form-group">
-                <label for="tipoDeConta">Tipo de Conta</label>
-                <select name="tipoDeConta" class="form-control" id="tipoDeConta" ngModel>
+                <label for="tipoDeContadDeposito">Tipo de Conta</label>
+                <select name="tipoDeConta" class="form-control" id="tipoDeContadDeposito" ngModel>
                   <option value="">
                     Selecione um tipo de conta...
                   </option>
@@ -76,7 +77,8 @@
             <div class="col-6">
               <div class="form-group">
                 <label for="valorSaque">Valor</label>
-                <input type="money" name="valor" class="form-control" id="valorSaque" placeholder="Valor"
+                <input type="money" mask="dot_separator.2" name="valor" class="form-control" id="valorSaque"
+                       placeholder="Valor"
                        ngModel>
               </div>
             </div>
@@ -161,8 +163,8 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <label for="valor">Valor</label>
-                <input type="money" name="valor" class="form-control" id="valor" placeholder="Valor"
+                <label for="valorEditar">Valor</label>
+                <input type="money" name="valor" class="form-control" id="valorEditar" placeholder="Valor"
                        ngModel>
               </div>
             </div>
@@ -216,7 +218,7 @@
               CPF
             </h6>
             <span>
-              {{this.usuario.cpf}}
+              {{this.usuario.cpf | mask: '000.000.000-00'}}
             </span>
           </div>
           <div class="col-4">
@@ -224,7 +226,7 @@
               Telefone
             </h6>
             <span>
-              {{this.usuario.telefone}}
+              {{this.usuario.telefone | mask: '(00) 00000-0000' }}
             </span>
           </div>
         </div>
@@ -263,7 +265,7 @@
               CEP
             </h6>
             <span>
-              {{this.usuario.endereco.cep}}
+              {{this.usuario.endereco.cep | mask: '00000-000'}}
             </span>
           </div>
           <div class="col-4">
