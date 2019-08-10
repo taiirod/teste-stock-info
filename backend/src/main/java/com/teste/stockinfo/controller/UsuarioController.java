@@ -66,8 +66,15 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable Long id, @RequestBody Usuario usuario){
-        Usuario usuarioAtualizado = usuarioService.editarUsuario(id, usuario);
-        return ResponseEntity.ok(usuarioAtualizado);
+    public ResponseEntity<?> editar(@PathVariable Long id,@Valid @RequestBody Usuario usuario){
+        return usuarioRepository.findById(id)
+                .map(resp -> {
+            resp.setEmail(usuario.getEmail());
+            resp.setTelefone(usuario.getEmail());
+            resp.setEndereco(usuario.getEndereco());
+            Usuario usuarioAtualizado = usuarioRepository.save(resp);
+            return ResponseEntity.ok().body(usuarioAtualizado);
+
+        }).orElse(ResponseEntity.notFound().build());
     }
 }

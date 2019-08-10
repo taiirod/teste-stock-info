@@ -104,13 +104,11 @@
     </ng-template>
 
     <!-- Modal Extrato -->
-    <ng-template #modalExtrato let-modal>
+    <ng-template #modalExtrato>
       <div class="modal-header">
         <h4 class="modal-title">
           Extrato
         </h4>
-        <button type="button" class="close" aria-label="Close">
-        </button>
       </div>
       <div class="modal-body">
         <h6>
@@ -121,6 +119,12 @@
         </h6>
         <h6>
           CPF: {{this.conta.usuario.cpf}}
+        </h6>
+        <h6>
+          Saldo Conta Normal: R$ {{this.conta.saldoContaNormal}}
+        </h6>
+        <h6>
+          Saldo Conta Eventual: R$ {{this.conta.saldoContaEventual}}
         </h6>
         <hr>
         <div *ngFor="let op of operacoes">
@@ -135,12 +139,6 @@
           </div>
           <div>
             Tipo Conta: {{op.tipoDeConta}}
-          </div>
-          <div *ngIf="op.tipoDeConta == 'Normal'">
-            Saldo atual da conta: {{this.conta.saldoContaNormal}}
-          </div>
-          <div *ngIf="op.tipoDeConta == 'Eventual'">
-            Saldo atual da conta: {{this.conta.saldoContaEventual}}
           </div>
           <hr>
         </div>
