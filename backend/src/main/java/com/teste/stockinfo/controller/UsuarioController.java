@@ -4,6 +4,8 @@ import com.teste.stockinfo.model.Conta;
 import com.teste.stockinfo.model.Usuario;
 import com.teste.stockinfo.repository.ContaRepository;
 import com.teste.stockinfo.repository.UsuarioRepository;
+import com.teste.stockinfo.service.UsuarioService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,9 @@ public class UsuarioController {
 
     @Autowired
     private ContaRepository contaRepository;
+
+    @Autowired
+    private UsuarioService usuarioService;
 
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarPorId(@PathVariable Long id) {
@@ -52,11 +57,17 @@ public class UsuarioController {
         Conta conta = new Conta();
 
         conta.setUsuario(novoUsuario);
+        conta.setSaldoContaEventual(0.0);
+        conta.setSaldoContaNormal(0.0);
 
         Conta c = contaRepository.save(conta);
 
-
-
         return ResponseEntity.ok(novoUsuario);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable Long id, @RequestBody Usuario usuario){
+        Usuario usuarioAtualizado = usuarioService.editarUsuario(id, usuario);
+        return ResponseEntity.ok(usuarioAtualizado);
     }
 }

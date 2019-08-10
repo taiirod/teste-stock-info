@@ -1,4 +1,155 @@
 <div class="container">
+
+
+  <div class="row mb-2">
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary ml-5" (click)="modalDeposito(depositoModal)">
+        Depositar
+      </button>
+      <button type="button" class="btn btn-primary ml-5" (click)="modalSaque(saqueModal)">
+        Sacar
+      </button>
+      <button type="button" class="btn btn-primary ml-5" (click)="abrirModalExtrato(modalExtrato)">
+        Extrato
+      </button>
+    </div>
+
+    <!-- MODAL DE OPERAÇÕES -->
+    <ng-template #depositoModal let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Efetuar Deposito
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form #opDepositoForm="ngForm" (ngSubmit)="deposito(opDepositoForm)">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="money" name="valor" class="form-control" id="valor" placeholder="Valor"
+                       ngModel>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="tipoDeConta">Tipo de Conta</label>
+                <select name="tipoDeConta" class="form-control" id="tipoDeConta" ngModel>
+                  <option value="">
+                    Selecione um tipo de conta...
+                  </option>
+                  <option value="Normal">
+                    Normal
+                  </option>
+                  <option value="Eventual">
+                    Eventual
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="this.erro" class="alert alert-danger" role="alert">
+            Saldo insuficiente.
+          </div>
+
+          <button type="submit" class="btn btn-primary mb-2 mr-2"> CONFIRMAR</button>
+        </form>
+      </div>
+    </ng-template>
+
+    <!-- MODAL DE SAQUE -->
+    <ng-template #saqueModal let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Efetuar Saque
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form #opSaqueForm="ngForm" (ngSubmit)="saque(opSaqueForm)">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="valorSaque">Valor</label>
+                <input type="money" name="valor" class="form-control" id="valorSaque" placeholder="Valor"
+                       ngModel>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="tipoDeContaSaque">Tipo de Conta</label>
+                <select name="tipoDeConta" class="form-control" id="tipoDeContaSaque" ngModel>
+                  <option value="">
+                    Selecione um tipo de conta...
+                  </option>
+                  <option value="Normal">
+                    Normal
+                  </option>
+                  <option value="Eventual">
+                    Eventual
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="this.erro" class="alert alert-danger" role="alert">
+            Saldo insuficiente.
+          </div>
+
+          <button type="submit" class="btn btn-primary mb-2 mr-2"> CONFIRMAR</button>
+        </form>
+      </div>
+    </ng-template>
+
+    <!-- Modal Extrato -->
+    <ng-template #modalExtrato let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Extrato
+        </h4>
+        <button type="button" class="close" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>
+          Conta: {{this.conta.id}}
+        </h6>
+        <h6>
+          Nome Completo: {{this.conta.usuario.nomeCompleto}}
+        </h6>
+        <h6>
+          CPF: {{this.conta.usuario.cpf}}
+        </h6>
+        <hr>
+        <div *ngFor="let op of operacoes">
+          <div>
+            Data: {{op.data | date: 'dd-MM-yyyy HH:mm:ss'}}
+          </div>
+          <div>
+            Operação: {{op.operacao === 'Depositar' ? 'Deposito' : 'Saque'}}
+          </div>
+          <div>
+            Valor: {{op.valor}}
+          </div>
+          <div>
+            Tipo Conta: {{op.tipoDeConta}}
+          </div>
+          <div *ngIf="op.tipoDeConta == 'Normal'">
+            Saldo atual da conta: {{this.conta.saldoContaNormal}}
+          </div>
+          <div *ngIf="op.tipoDeConta == 'Eventual'">
+            Saldo atual da conta: {{this.conta.saldoContaEventual}}
+          </div>
+          <hr>
+        </div>
+      </div>
+    </ng-template>
+
+
+  </div>
+
   <div class="card">
     <div class="col-12">
       <div class="card-body">
@@ -156,124 +307,5 @@
     </div>
   </div>
 
-  <div class="row mt-3">
 
-    <!-- Modal  Operações -->
-    <div class="col-4">
-      <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalOperacao(modalOperacao)"> Depositar </button>
-    </div>
-
-    <div class="col-4">
-      <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalOperacao(modalOperacao)"> Sacar </button>
-    </div>
-
-    <ng-template #modalOperacao let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title">
-          Efetuar Operação.
-        </h4>
-      </div>
-      <div class="modal-body">
-        <form #operacaoForm="ngForm" (ngSubmit)="novaOperacao(operacaoForm)">
-          <div class="row">
-            <div class="col-4">
-              <div class="form-group">
-                <label for="valor">Valor</label>
-                <input type="money" name="valor" class="form-control" id="valor" placeholder="Valor"
-                       ngModel>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="form-group">
-                <label for="operacao">Operação</label>
-                <select name="operacao" class="form-control" id="operacao" ngModel>
-                  <option value="">
-                    Selecione uma operação...
-                  </option>
-                  <option value="Depositar">
-                    Depositar
-                  </option>
-                  <option value="Sacar">
-                    Sacar
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="form-group">
-                <label for="tipoDeConta">Tipo de Conta</label>
-                <select name="tipoDeConta" class="form-control" id="tipoDeConta" ngModel>
-                  <option value="">
-                    Selecione um tipo de conta...
-                  </option>
-                  <option value="Normal">
-                    Normal
-                  </option>
-                  <option value="Eventual">
-                    Eventual
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary mb-2 mr-2"> CONFIRMAR </button>
-        </form>
-      </div>
-    </ng-template>
-
-    <!-- Modal Extrato -->
-    <div class="col-4">
-      <button class="btn btn-primary mb-2 mr-2" (click)="abrirModalExtrato(modalExtrato)">
-        Ver Extrato
-      </button>
-
-      <ng-template #modalExtrato let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title">
-            Extrato
-          </h4>
-          <button type="button" class="close" aria-label="Close">
-          </button>
-        </div>
-        <div class="modal-body">
-          <h6>
-            Conta: {{this.conta.id}}
-          </h6>
-          <h6>
-            Nome Completo: {{this.conta.usuario.nomeCompleto}}
-          </h6>
-          <h6>
-            CPF: {{this.conta.usuario.cpf}}
-          </h6>
-          <hr>
-          <div *ngFor="let op of operacoes">
-            <div>
-              Data: {{op.data | date: 'dd-MM-yyyy HH:mm:ss'}}
-            </div>
-            <div>
-              Operação: {{op.operacao === 'Depositar' ? 'Deposito' : 'Saque'}}
-            </div>
-            <div>
-              Valor: {{op.valor}}
-            </div>
-            <div>
-              Tipo Conta: {{op.tipoDeConta}}
-            </div>
-            <div *ngIf="op.tipoDeConta == 'Normal'">
-              Saldo atual da conta: {{this.conta.saldoContaNormal}}
-            </div>
-            <div *ngIf="op.tipoDeConta == 'Eventual'">
-              Saldo atual da conta: {{this.conta.saldoContaEventual}}
-            </div>
-            <hr>
-          </div>
-        </div>
-      </ng-template>
-
-
-    </div>
-
-
-  </div>
 </div>

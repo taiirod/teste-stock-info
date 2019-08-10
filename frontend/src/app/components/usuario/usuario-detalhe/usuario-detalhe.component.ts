@@ -7,7 +7,6 @@ import {Conta} from '../../../model/conta';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {OperacaoService} from '../../../services/operacao.service';
 import {Operacao} from '../../../model/operacao';
-import {TipoDeConta} from '../../../model/enum/tipo-de-conta.enum';
 import {NgForm} from '@angular/forms';
 import {TitleService} from '../../../services/title.service';
 
@@ -23,13 +22,13 @@ export class UsuarioDetalheComponent implements OnInit {
   conta = new Conta();
   operacao = new Operacao();
   operacoes: Operacao[];
+  erro = false;
 
   constructor(private usuarioService: UsuariosService,
               private contaService: ContaService,
               private operacaoService: OperacaoService,
               private route: ActivatedRoute,
-              private modalService: NgbModal,
-              private titleService: TitleService) {
+              private modalService: NgbModal) {
   }
 
   ngOnInit() {
@@ -67,10 +66,17 @@ export class UsuarioDetalheComponent implements OnInit {
     this.modalService.open(modalExtrato, {scrollable: true});
   }
 
+  modalSaque(opSaqueForm) {
+    const modal = this.modalService.open(opSaqueForm, {ariaLabelledBy: 'modal-basic-title'});
+    modal.result.then(() => {
+    }, () => {
+      this.buscarContaPorIdUsuario();
+    });
+  }
 
-
-  abrirModalOperacao(modalSaque) {
-    const modal = this.modalService.open(modalSaque, {size: 'xl'});
+  modalDeposito(modalSaque) {
+    this.erro = false;
+    const modal = this.modalService.open(modalSaque, {ariaLabelledBy: 'modal-basic-title'});
     modal.result.then(() => {
     }, () => {
       this.buscarContaPorIdUsuario();
@@ -78,17 +84,31 @@ export class UsuarioDetalheComponent implements OnInit {
   }
 
 
-  novaOperacao(operacaoForm: NgForm) {
+  deposito(opDepositoForm: NgForm) {
 
-    this.operacao.valor = operacaoForm.value.valor;
-    this.operacao.tipoDeConta = operacaoForm.value.tipoDeConta;
-    this.operacao.operacao = operacaoForm.value.operacao;
+    this.operacao.valor = opDepositoForm.value.valor;
+    this.operacao.tipoDeConta = opDepositoForm.value.tipoDeConta;
+    this.operacao.operacao = 'Depositar';
 
-    this.operacaoService.efetuarOperacao(this.conta.id, this.operacao).then(resp => {
-      if (resp != null) {
-        this.modalService.dismissAll();
-      }
-    });
+    this.operacaoService.efetuarOperacao(this.conta.id, this.operacao)
+      .then(resp => {
+        if (resp != null) {
+          this.modalService.dismissAll();
+        }
+      });
+  }
+
+  saque(opSaqueForm: NgForm) {
+    this.operacao.valor = opSaqueForm.value.valor;
+    this.operacao.tipoDeConta = opSaqueForm.value.tipoDeConta;
+    this.operacao.operacao = 'Sacar';
+
+    this.operacaoService.efetuarOperacao(this.conta.id, this.operacao)
+      .then(resp => {
+        if (resp != null) {
+          this.modalService.dismissAll();
+        }
+      });
   }
 }
 
