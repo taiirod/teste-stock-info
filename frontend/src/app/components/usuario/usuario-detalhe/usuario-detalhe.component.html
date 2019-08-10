@@ -3,7 +3,7 @@
 
   <div class="row mb-2">
 
-    <div class="btn-group" role="group" aria-label="Basic example">
+    <div class="" role="group" aria-label="Basic example">
       <button type="button" class="btn btn-primary ml-5" (click)="modalDeposito(depositoModal)">
         Depositar
       </button>
@@ -12,6 +12,10 @@
       </button>
       <button type="button" class="btn btn-primary ml-5" (click)="abrirModalExtrato(modalExtrato)">
         Extrato
+      </button>
+      <button type="button" class="btn btn-primary ml-5" (click)="modalEditar(editarModal)">
+        <i class="fa fa-pencil mr-2" aria-hidden="true"></i>
+        Editar
       </button>
     </div>
 
@@ -103,7 +107,7 @@
       </div>
     </ng-template>
 
-    <!-- Modal Extrato -->
+    <!-- MODAL DE EXTRATO -->
     <ng-template #modalExtrato>
       <div class="modal-header">
         <h4 class="modal-title">
@@ -142,6 +146,50 @@
           </div>
           <hr>
         </div>
+      </div>
+    </ng-template>
+
+    <!-- MODAL DE OPERAÇÕES -->
+    <ng-template #editarModal let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Efetuar Deposito
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form #editarForm="ngForm" (ngSubmit)="editar(editarForm)">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="money" name="valor" class="form-control" id="valor" placeholder="Valor"
+                       ngModel>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="tipoDeConta">Tipo de Conta</label>
+                <select name="tipoDeConta" class="form-control" id="tipoDeConta" ngModel>
+                  <option value="">
+                    Selecione um tipo de conta...
+                  </option>
+                  <option value="Normal">
+                    Normal
+                  </option>
+                  <option value="Eventual">
+                    Eventual
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="this.erro" class="alert alert-danger" role="alert">
+            Saldo insuficiente.
+          </div>
+
+          <button type="submit" class="btn btn-primary mb-2 mr-2"> CONFIRMAR</button>
+        </form>
       </div>
     </ng-template>
 
@@ -300,7 +348,6 @@
             </span>
           </div>
         </div>
-
       </div>
     </div>
   </div>

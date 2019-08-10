@@ -110,5 +110,13 @@ export class UsuarioDetalheComponent implements OnInit {
         }
       });
   }
+
+  modalEditar(editaroModal) {
+
+  }
+
+  editar(editarForm: NgForm) {
+    
+  }
 }
 
