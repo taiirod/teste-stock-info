@@ -37,7 +37,6 @@ export class UsuarioFormComponent implements OnInit {
     this.usuario.email = usuarioForm.value.email;
     this.usuario.dataDeNascimento = usuarioForm.value.dataDeNascimento;
 
-
     this.usuarioService.novo(this.usuario)
       .subscribe(usuarioResp => {
         if (usuarioResp != null) {
@@ -60,8 +59,6 @@ export class UsuarioFormComponent implements OnInit {
             this.endereco.bairro = endereco.bairro;
             this.endereco.uf = endereco.uf;
 
-            this.endereco.cep.replace('-', '');
-            console.log(this.endereco.cep);
             this.usuario.endereco = this.endereco;
 
           } else {

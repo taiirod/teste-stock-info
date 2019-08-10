@@ -11,8 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/usuario")
@@ -41,14 +46,12 @@ public class UsuarioController {
 
 
     @PostMapping
-    public ResponseEntity<?> novo(@RequestBody Usuario usuario) {
-
-        Usuario novoUsuario = new Usuario();
-
-        Date date = new Date();
-        date.getTime();
+    public ResponseEntity<?> novo(@Valid @RequestBody Usuario usuario) {
+        Usuario novoUsuario;
+        LocalDate anoAtual = LocalDate.now();
 
         if (usuarioRepository.findByCpf(usuario.getCpf()) == null) {
+            usuario.setIdade(calculateAge(usuario.getDataDeNascimento(), anoAtual));
             novoUsuario = usuarioRepository.save(usuario);
         } else {
             return ResponseEntity
@@ -71,11 +74,19 @@ public class UsuarioController {
         return usuarioRepository.findById(id)
                 .map(resp -> {
                     resp.setEmail(usuario.getEmail());
-                    resp.setTelefone(usuario.getEmail());
+                    resp.setTelefone(usuario.getTelefone());
                     resp.setEndereco(usuario.getEndereco());
                     Usuario usuarioAtualizado = usuarioRepository.save(resp);
                     return ResponseEntity.ok().body(usuarioAtualizado);
 
                 }).orElse(ResponseEntity.notFound().build());
+    }
+
+    private static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+        if ((birthDate != null) && (currentDate != null)) {
+            return Period.between(birthDate, currentDate).getYears();
+        } else {
+            return 0;
+        }
     }
 }

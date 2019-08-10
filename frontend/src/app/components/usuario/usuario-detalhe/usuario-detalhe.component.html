@@ -4,18 +4,18 @@
   <div class="row mb-2">
 
     <div class="" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-primary ml-5" (click)="modalDeposito(depositoModal)">
+      <button type="button" class="btn btn-primary ml-5" (click)="abrirModalDeposito(depositoModal)">
         Depositar
       </button>
-      <button type="button" class="btn btn-primary ml-5" (click)="modalSaque(saqueModal)">
+      <button type="button" class="btn btn-primary ml-5" (click)="abrirModalSaque(saqueModal)">
         Sacar
       </button>
       <button type="button" class="btn btn-primary ml-5" (click)="abrirModalExtrato(modalExtrato)">
         Extrato
       </button>
-      <button type="button" class="btn btn-primary ml-5" (click)="modalEditar(editarModal)">
+      <button type="button" class="btn btn-primary ml-5" (click)="abrirModalEditar(editarModal)">
         <i class="fa fa-pencil mr-2" aria-hidden="true"></i>
-        Editar
+        Editar Informações do Usuário
       </button>
     </div>
 
@@ -151,11 +151,11 @@
       </div>
     </ng-template>
 
-    <!-- MODAL DE OPERAÇÕES -->
+    <!-- MODAL DE EDITAR -->
     <ng-template #editarModal let-modal>
       <div class="modal-header">
         <h4 class="modal-title">
-          Efetuar Deposito
+          Editar dados de {{this.usuario.nomeCompleto}}
         </h4>
       </div>
       <div class="modal-body">
@@ -163,27 +163,79 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <label for="valorEditar">Valor</label>
-                <input type="money" name="valor" class="form-control" id="valorEditar" placeholder="Valor"
-                       ngModel>
+                <label for="telefone">Telefone</label>
+                <input type="phone" name="telefone" maxlength="15" class="form-control" id="telefone"
+                       placeholder="Telefone"
+                       [(ngModel)]="this.usuario.telefone" mask='(00) 00000-0000'>
               </div>
             </div>
             <div class="col-6">
               <div class="form-group">
-                <label for="tipoDeConta">Tipo de Conta</label>
-                <select name="tipoDeConta" class="form-control" id="tipoDeConta" ngModel>
-                  <option value="">
-                    Selecione um tipo de conta...
-                  </option>
-                  <option value="Normal">
-                    Normal
-                  </option>
-                  <option value="Eventual">
-                    Eventual
-                  </option>
-                </select>
+                <label for="email">E-mail</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="E-mail"
+                       [(ngModel)]="this.usuario.email">
               </div>
             </div>
+          </div>
+
+          <h4>Endereço</h4>
+
+          <div class="row">
+            <div class="col-2">
+              <div class="form-group">
+                <label for="cep">CEP</label>
+                <input type="text" name="cep" class="form-control" id="cep" placeholder="CEP"
+                       [(ngModel)]="this.usuario.endereco.cep" (input)="buscarPorCep(editarForm)" maxlength="9"
+                       mask='00000-000'>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label for="logradouro">Logradouro</label>
+                <input type="text" name="logradouro" class="form-control" id="logradouro" placeholder="Logradouro"
+                       [(ngModel)]="this.usuario.endereco.logradouro">
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-group">
+                <label for="numero">Número</label>
+                <input type="number" name="numero" class="form-control" id="numero" placeholder="Nº"
+                       [(ngModel)]="this.usuario.endereco.numero" maxlength="6">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label for="complemento">Complemento</label>
+                <input type="email" name="complemento" class="form-control" id="complemento" placeholder="Complemento"
+                       [(ngModel)]="this.usuario.endereco.complemento">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <label for="bairro">Bairro</label>
+                <input type="texto" name="bairro" class="form-control" id="bairro" placeholder="Bairro"
+                       [(ngModel)]="this.usuario.endereco.bairro">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label for="localidade">Localidade</label>
+                <input type="text" name="localidade" class="form-control" id="localidade" placeholder="Localidade"
+                       [(ngModel)]="this.usuario.endereco.localidade">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label for="uf">Estado</label>
+                <input type="text" name="uf" class="form-control" id="uf" placeholder="Estado"
+                       [(ngModel)]="this.usuario.endereco.uf" maxlength="2">
+              </div>
+            </div>
+
+
           </div>
 
           <div *ngIf="this.erro" class="alert alert-danger" role="alert">
@@ -231,7 +283,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-4">
+          <div class="col-3">
             <h6 class="card-subtitle  mt-2 text-muted">
               Sexo
             </h6>
@@ -239,7 +291,7 @@
               {{this.usuario.sexo}}
             </span>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <h6 class="card-subtitle  mt-2 text-muted">
               E-mail
             </h6>
@@ -247,12 +299,20 @@
               {{this.usuario.email}}
             </span>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <h6 class="card-subtitle  mt-2 text-muted">
               Data de nascimento
             </h6>
             <span>
-              {{this.usuario.dataDeNascimento}}
+              {{this.usuario.dataDeNascimento | mask: '00/00/0000'}}
+            </span>
+          </div>
+          <div class="col-3">
+            <h6 class="card-subtitle mt-2 text-muted">
+              Idade
+            </h6>
+            <span>
+              {{this.usuario.idade}}
             </span>
           </div>
         </div>

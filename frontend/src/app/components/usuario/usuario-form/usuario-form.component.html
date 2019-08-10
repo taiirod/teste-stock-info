@@ -20,7 +20,7 @@
         <div class="col-4">
           <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input type="phone" name="telefone"  maxlength="15" class="form-control" id="telefone" placeholder="Telefone"
+            <input type="phone" name="telefone" maxlength="15" class="form-control" id="telefone" placeholder="Telefone"
                    ngModel mask='(00) 00000-0000'>
           </div>
         </div>
@@ -52,8 +52,8 @@
         <div class="col-4">
           <div class="form-group">
             <label for="dataDeNascimento">Data de nascimento</label>
-            <input type="email" name="dataDeNascimento" class="form-control" id="dataDeNascimento"
-                   placeholder="Data de nascimento"
+            <input type="texta" name="dataDeNascimento" class="form-control" id="dataDeNascimento"
+                   placeholder="dd/MM/yyyy" mask="00/00/0000" [dropSpecialCharacters]="false"
                    ngModel>
           </div>
         </div>

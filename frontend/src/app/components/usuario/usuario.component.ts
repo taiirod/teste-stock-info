@@ -21,13 +21,8 @@ export class UsuarioComponent implements OnInit {
   buscarTodosUsuarios() {
     this.usuarioService.buscarTodosUsuarios().then(
       (resp: Usuario[]) => {
-        console.log(resp);
         this.todosUsuarios = resp;
       });
   }
-
-  /*novoUsuario(usuarioForm: any) {
-    console.log(usuarioForm);
-  }*/
 
 }

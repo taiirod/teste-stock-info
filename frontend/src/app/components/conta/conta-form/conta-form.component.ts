@@ -29,7 +29,6 @@ export class ContaFormComponent implements OnInit {
   buscarTodosUsuarios() {
     this.usuariosService.buscarTodosUsuarios().then(
       (resp: Usuario[]) => {
-        console.log(resp);
         this.todosUsuarios = resp;
       });
   }
@@ -40,7 +39,6 @@ export class ContaFormComponent implements OnInit {
     this.conta.saldoContaEventual = 0;
     this.conta.saldoContaNormal = 0;
     this.contaService.nova(this.conta).subscribe(resp => {
-      console.log(resp);
       if (resp != null) {
         this.router.navigate(['/contas']);
       }

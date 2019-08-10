@@ -20,13 +20,16 @@ export class UsuariosService {
 
   buscarPorId(id: number) {
     return this.httpClient.get(this.endpoint + '/' + id).toPromise().then(resp => {
-      console.log(resp);
       return resp;
     });
   }
 
   novo(usuario: Usuario) {
     return this.httpClient.post(this.endpoint, usuario);
+  }
+
+  editar(id: number, usuario: Usuario) {
+    return this.httpClient.put(this.endpoint + '/' + id, usuario);
   }
 
   delete(id) {

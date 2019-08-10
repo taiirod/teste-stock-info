@@ -1,10 +1,13 @@
 package com.teste.stockinfo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.teste.stockinfo.model.enums.SexoEnum;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -25,8 +28,8 @@ public class Usuario {
     private Integer idade;
 
     @Column(name = "data_de_nascimento")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date dataDeNascimento;
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
+    private LocalDate dataDeNascimento;
 
     private String email;
     private String telefone;
@@ -74,11 +77,11 @@ public class Usuario {
         this.idade = idade;
     }
 
-    public Date getDataDeNascimento() {
+    public LocalDate getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
+    public void setDataDeNascimento(LocalDate dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 
