@@ -54,9 +54,7 @@ public class UsuarioController {
             usuario.setIdade(calculateAge(usuario.getDataDeNascimento(), anoAtual));
             novoUsuario = usuarioRepository.save(usuario);
         } else {
-            return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
-                    .body("CPF já cadastrado.");
+            return ResponseEntity.ok().build();
         }
 
         Conta conta = new Conta();
