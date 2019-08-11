@@ -10,6 +10,7 @@ import {Operacao} from '../../../model/operacao';
 import {NgForm} from '@angular/forms';
 import {Endereco} from '../../../model/endereco';
 import {EnderecoService} from '../../../services/endereco.service';
+import {TitleService} from '../../../services/title.service';
 
 @Component({
   selector: 'app-usuario-detalhe',
@@ -25,20 +26,21 @@ export class UsuarioDetalheComponent implements OnInit {
   operacao = new Operacao();
   operacoes: Operacao[];
   erro = false;
-  usuarioEditavel = new Usuario();
 
   constructor(private usuarioService: UsuariosService,
               private enderecoService: EnderecoService,
               private contaService: ContaService,
               private operacaoService: OperacaoService,
               private route: ActivatedRoute,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
     this.pegarId();
     this.buscarPorId();
     this.buscarContaPorIdUsuario();
+    this.titleService.changeTitleName('Detalhes do usuário');
   }
 
   pegarId() {

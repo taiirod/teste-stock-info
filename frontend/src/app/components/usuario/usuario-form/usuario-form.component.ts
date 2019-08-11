@@ -5,8 +5,9 @@ import {Endereco} from '../../../model/endereco';
 import {Usuario} from '../../../model/usuario';
 import {UsuariosService} from '../../../services/usuarios.service';
 import {Router} from '@angular/router';
-import {ContaService} from '../../../services/conta.service';
 import {Conta} from '../../../model/conta';
+import {ContaService} from '../../../services/conta.service';
+import {TitleService} from '../../../services/title.service';
 
 @Component({
   selector: 'app-usuario-form',
@@ -23,10 +24,12 @@ export class UsuarioFormComponent implements OnInit {
   constructor(private contaService: ContaService,
               private enderecoService: EnderecoService,
               private usuarioService: UsuariosService,
-              private router: Router) {
+              private router: Router,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
+    this.titleService.changeTitleName('Adicionar Usuário');
   }
 
   novoUsuario(usuarioForm: NgForm) {

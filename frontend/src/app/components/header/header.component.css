@@ -1,7 +1,7 @@
-.top-navbar {
+.navbar {
+  margin-bottom: 2%;
+
   background-color: blue;
   height: 120px;
-  margin-bottom: 2%;
-  margin-top: 0;
   color: white;
 }

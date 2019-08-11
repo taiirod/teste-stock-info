@@ -1,0 +1,129 @@
+﻿Carimbo de data/hora	Nome do arquivo	Erro	Mensagem
+2019-08-10 18:59:22.445 -0300	modelagem-teste.fmp12	0	*** Recuperação de 'modelagem-teste.fmp12' iniciada
+2019-08-10 18:59:22.448 -0300	modelagem-teste.fmp12	0	Verificando blocos e recriando arquivo...
+2019-08-10 18:59:22.530 -0300	modelagem-teste.fmp12	0	Verificação concluída; 60 página(s) encontrada(s) para processar
+2019-08-10 18:59:22.536 -0300	modelagem-teste.fmp12	0	A recriação processou 60 página(s), concluindo o fim do arquivo
+2019-08-10 18:59:22.565 -0300	modelagem-teste.fmp12	0	Cópia ou recriação de blocos de arquivo concluída
+2019-08-10 18:59:22.574 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de fontes
+2019-08-10 18:59:22.577 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de fontes: nome 
+2019-08-10 18:59:22.578 -0300	modelagem-teste.fmp12	0	  Recuperando: fonte 'Arial' (0)
+2019-08-10 18:59:22.580 -0300	modelagem-teste.fmp12	0	  Recuperando: fonte 'Segoe UI' (1)
+2019-08-10 18:59:22.580 -0300	modelagem-teste.fmp12	0	  Recuperando: fonte 'arial,sans-serif' (2)
+2019-08-10 18:59:22.582 -0300	modelagem-teste.fmp12	0	  Recuperando: fonte 'Tahoma' (3)
+2019-08-10 18:59:22.583 -0300	modelagem-teste.fmp12	0	Recuperando esquema
+2019-08-10 18:59:22.585 -0300	modelagem-teste.fmp12	0	Recuperando catálogos de esquema
+2019-08-10 18:59:22.587 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de tabelas
+2019-08-10 18:59:22.589 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de tabelas: nome 
+2019-08-10 18:59:22.590 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de tabelas: personalizado 
+2019-08-10 18:59:22.592 -0300	modelagem-teste.fmp12	0	  Recuperando: tabela 'usuario' (131)
+2019-08-10 18:59:22.592 -0300	modelagem-teste.fmp12	0	  Recuperando: tabela 'conta' (132)
+2019-08-10 18:59:22.595 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de alias de tabela
+2019-08-10 18:59:22.596 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de alias de tabela: nome 
+2019-08-10 18:59:22.598 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de alias de tabela: personalizado 
+2019-08-10 18:59:22.599 -0300	modelagem-teste.fmp12	0	  Dependências relacionais excluídas
+2019-08-10 18:59:22.600 -0300	modelagem-teste.fmp12	0	  Recuperando: alias de tabela 'usuario' (1065090)
+2019-08-10 18:59:22.601 -0300	modelagem-teste.fmp12	0	  Recuperando: alias de tabela 'conta' (1065091)
+2019-08-10 18:59:22.604 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de relacionamentos
+2019-08-10 18:59:22.605 -0300	modelagem-teste.fmp12	0	  Recuperando relação de 'usuario' para 'conta'
+2019-08-10 18:59:22.607 -0300	modelagem-teste.fmp12	0	Recuperando campos para a tabela 'usuario'
+2019-08-10 18:59:22.609 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de campos 'usuario'
+2019-08-10 18:59:22.611 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de campos 'usuario': nome 
+2019-08-10 18:59:22.613 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de campos 'usuario': personalizado 
+2019-08-10 18:59:22.615 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de campos 'usuario': tipo 
+2019-08-10 18:59:22.616 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'id' (1)
+2019-08-10 18:59:22.618 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'cpf' (6)
+2019-08-10 18:59:22.619 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'data_de_nascimento' (9)
+2019-08-10 18:59:22.621 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'email' (10)
+2019-08-10 18:59:22.621 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'bairro' (11)
+2019-08-10 18:59:22.623 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'cep' (12)
+2019-08-10 18:59:22.624 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'complemento' (13)
+2019-08-10 18:59:22.626 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'localidade' (14)
+2019-08-10 18:59:22.626 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'logradouro' (15)
+2019-08-10 18:59:22.628 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'numero' (16)
+2019-08-10 18:59:22.629 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'uf' (17)
+2019-08-10 18:59:22.631 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'idade' (18)
+2019-08-10 18:59:22.632 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'nome_completo' (19)
+2019-08-10 18:59:22.634 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'sexo' (20)
+2019-08-10 18:59:22.634 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'telefone' (21)
+2019-08-10 18:59:22.636 -0300	modelagem-teste.fmp12	0	Recuperando campos para a tabela 'conta'
+2019-08-10 18:59:22.638 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de campos 'conta'
+2019-08-10 18:59:22.640 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de campos 'conta': nome 
+2019-08-10 18:59:22.641 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de campos 'conta': personalizado 
+2019-08-10 18:59:22.643 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de campos 'conta': tipo 
+2019-08-10 18:59:22.644 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'id' (6)
+2019-08-10 18:59:22.645 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'usuario_id' (7)
+2019-08-10 18:59:22.646 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'saldo_conta_normal' (8)
+2019-08-10 18:59:22.648 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'saldo_conta_eventual' (9)
+2019-08-10 18:59:22.649 -0300	modelagem-teste.fmp12	0	  Recuperando: campo 'saldo_total_geral' (10)
+2019-08-10 18:59:22.657 -0300	modelagem-teste.fmp12	0	Recuperando índices para a tabela 'usuario'
+2019-08-10 18:59:22.661 -0300	modelagem-teste.fmp12	0	Recuperando índices para a tabela 'conta'
+2019-08-10 18:59:22.663 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de contas de usuário
+2019-08-10 18:59:22.666 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de contas de usuário: nome 
+2019-08-10 18:59:22.666 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de contas de usuário: personalizado 
+2019-08-10 18:59:22.669 -0300	modelagem-teste.fmp12	0	  Recuperando: conta de usuário '<Sem acesso>' (1)
+2019-08-10 18:59:22.669 -0300	modelagem-teste.fmp12	0	  Recuperando: conta de usuário '<Sem acesso>' (2)
+2019-08-10 18:59:22.672 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo conjunto de privilégios
+2019-08-10 18:59:22.673 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo conjunto de privilégios: nome 
+2019-08-10 18:59:22.676 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo conjunto de privilégios: personalizado 
+2019-08-10 18:59:22.676 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo conjunto de privilégios: referência rápida 
+2019-08-10 18:59:22.679 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de privilégios estendidos
+2019-08-10 18:59:22.680 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de privilégios estendidos: nome 
+2019-08-10 18:59:22.683 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmwebdirect' (1)
+2019-08-10 18:59:22.683 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmxdbc' (2)
+2019-08-10 18:59:22.685 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmapp' (3)
+2019-08-10 18:59:22.685 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmreauthenticate10' (4)
+2019-08-10 18:59:22.688 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmxml' (5)
+2019-08-10 18:59:22.688 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmphp' (6)
+2019-08-10 18:59:22.691 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmextscriptaccess' (7)
+2019-08-10 18:59:22.691 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmurlscript' (8)
+2019-08-10 18:59:22.693 -0300	modelagem-teste.fmp12	0	  Recuperando: privilégio estendido 'fmrest' (9)
+2019-08-10 18:59:22.695 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de arquivos autorizados
+2019-08-10 18:59:22.697 -0300	modelagem-teste.fmp12	0	  Recuperando: arquivo autorizado '<Sem acesso>' (1)
+2019-08-10 18:59:22.697 -0300	modelagem-teste.fmp12	0	  Recuperando: arquivo autorizado '<Sem acesso>' (2)
+2019-08-10 18:59:22.701 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de listas de valores
+2019-08-10 18:59:22.702 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de listas de valores: nome 
+2019-08-10 18:59:22.705 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de listas de valores: personalizado 
+2019-08-10 18:59:22.705 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de listas de valores: tipo 
+2019-08-10 18:59:22.708 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de layout
+2019-08-10 18:59:22.711 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de layout: referência rápida 
+2019-08-10 18:59:22.713 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de layout: nome 
+2019-08-10 18:59:22.714 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de layout: personalizado 
+2019-08-10 18:59:22.717 -0300	modelagem-teste.fmp12	0	  Recuperando: layout 'Tabela' (1)
+2019-08-10 18:59:22.727 -0300	modelagem-teste.fmp12	0	  Recuperando: layout 'usuario' (2)
+2019-08-10 18:59:22.763 -0300	modelagem-teste.fmp12	0	  Recuperando: layout 'conta' (3)
+2019-08-10 18:59:22.845 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de temas
+2019-08-10 18:59:22.847 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de temas: nome 
+2019-08-10 18:59:22.851 -0300	modelagem-teste.fmp12	0	  Recuperando: tema 'com.filemaker.theme.enlightened' (1)
+2019-08-10 18:59:22.877 -0300	modelagem-teste.fmp12	8476	    Esse item foi alterado
+2019-08-10 18:59:22.879 -0300	modelagem-teste.fmp12	0	  Avaliando biblioteca para layouts e temas
+2019-08-10 18:59:22.882 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo de scripts
+2019-08-10 18:59:22.883 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de scripts: referência rápida 
+2019-08-10 18:59:22.885 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de scripts: nome 
+2019-08-10 18:59:22.886 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo de scripts: personalizado 
+2019-08-10 18:59:22.890 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo menus personalizados
+2019-08-10 18:59:22.891 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo menus personalizados: nome 
+2019-08-10 18:59:22.894 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo menus personalizados: personalizado 
+2019-08-10 18:59:22.896 -0300	modelagem-teste.fmp12	0	Recuperando: catálogo conjunto de menus personalizados
+2019-08-10 18:59:22.898 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo conjunto de menus personalizados: nome 
+2019-08-10 18:59:22.898 -0300	modelagem-teste.fmp12	0	  Recriando lista de ordem catálogo conjunto de menus personalizados: personalizado 
+2019-08-10 18:59:22.900 -0300	modelagem-teste.fmp12	0	  Recuperando: conjunto de menus personalizados '[Menus padrão do FileMaker]' (1)
+2019-08-10 18:59:22.901 -0300	modelagem-teste.fmp12	0	Último formato de página usado excluído
+2019-08-10 18:59:22.903 -0300	modelagem-teste.fmp12	0	Últimas configurações de impressão usadas excluídas
+2019-08-10 18:59:22.904 -0300	modelagem-teste.fmp12	0	Últimos padrões de formatação de layout usados excluídos
+2019-08-10 18:59:22.906 -0300	modelagem-teste.fmp12	0	Últimas configurações de janela usadas excluídas
+2019-08-10 18:59:22.907 -0300	modelagem-teste.fmp12	0	Últimas ordens de importação usadas excluídas
+2019-08-10 18:59:22.908 -0300	modelagem-teste.fmp12	0	Últimas ordens de exportação usadas excluídas
+2019-08-10 18:59:22.909 -0300	modelagem-teste.fmp12	0	Últimas ordens de classificação usadas excluídas
+2019-08-10 18:59:22.911 -0300	modelagem-teste.fmp12	0	Últimos conjuntos de solicitação usados excluídos
+2019-08-10 18:59:22.912 -0300	modelagem-teste.fmp12	0	Últimos conjuntos encontrados usados excluídos
+2019-08-10 18:59:22.951 -0300	modelagem-teste.fmp12	0	A recuperação criou um novo banco de dados sem detectar problemas. O novo banco de dados é seguro para usar, mas monitore os resultados atentamente e mantenha backups atualizados dos bancos de dados.
+2019-08-10 18:59:22.952 -0300	modelagem-teste.fmp12	0	Nota: a recuperação verifica apenas os blocos de dados do arquivo e gera um novo arquivo com esses dados. A Verificação de consistência verifica todos os blocos do arquivo e pode encontrar mais problemas no arquivo original do que a opção Recuperar.
+2019-08-10 18:59:22.954 -0300	modelagem-teste.fmp12	0	Blocos de arquivo: 60 bloco(s) verificado(s) e recriado(s), 0 bloco(s) de dados inválido(s) ignorado(s)
+2019-08-10 18:59:22.954 -0300	modelagem-teste.fmp12	0	Esquema: campos e tabelas verificados; nenhum problema encontrado
+2019-08-10 18:59:22.956 -0300	modelagem-teste.fmp12	0	Estrutura: verificada; 0 item(ns) modificado(s)
+2019-08-10 18:59:22.957 -0300	modelagem-teste.fmp12	0	O tamanho do arquivo após a recuperação é de 233472 bytes
+2019-08-10 18:59:22.959 -0300	modelagem-teste.fmp12	0	*** Recuperação de 'modelagem-teste Recuperado.fmp12' concluída
+2019-08-10 22:20:53.373 -0300	modelagemdb.fmp12	0	*** Verificação de consistência iniciada, total de 65 bloco(s) para verificar
+2019-08-10 22:20:53.377 -0300	modelagemdb.fmp12	0	*** Verificação de consistência concluída, 65 bloco(s) verificado(s)
+2019-08-10 22:28:39.976 -0300	modelagemdb.fmp12	0	*** Verificação de consistência iniciada, total de 65 bloco(s) para verificar
+2019-08-10 22:28:39.979 -0300	modelagemdb.fmp12	0	*** Verificação de consistência concluída, 65 bloco(s) verificado(s)

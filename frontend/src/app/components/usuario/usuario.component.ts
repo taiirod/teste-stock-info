@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuariosService} from '../../services/usuarios.service';
 import {Usuario} from '../../model/usuario';
+import {TitleService} from '../../services/title.service';
 
 @Component({
   selector: 'app-usuario',
@@ -11,11 +12,13 @@ export class UsuarioComponent implements OnInit {
 
   todosUsuarios: Usuario[];
 
-  constructor(private usuarioService: UsuariosService) {
+  constructor(private usuarioService: UsuariosService,
+              private titleService: TitleService) {
   }
 
   ngOnInit() {
     this.buscarTodosUsuarios();
+    this.titleService.changeTitleName('Lista de usuários');
   }
 
   buscarTodosUsuarios() {

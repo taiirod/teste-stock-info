@@ -1,20 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {UsuarioComponent} from './components/usuario/usuario.component';
-import {InicioComponent} from './components/inicio/inicio.component';
 import {UsuarioFormComponent} from './components/usuario/usuario-form/usuario-form.component';
-import {ContaComponent} from './components/conta/conta.component';
-import {ContaFormComponent} from './components/conta/conta-form/conta-form.component';
 import {UsuarioDetalheComponent} from './components/usuario/usuario-detalhe/usuario-detalhe.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'inicio',
-    component: InicioComponent,
-    data: {
-      title: 'Início'
-    }
-  },
+
   {
     path: 'usuarios',
     component: UsuarioComponent,
@@ -37,25 +28,8 @@ const appRoutes: Routes = [
     }
   },
   {
-    path: 'contas',
-    component: ContaComponent,
-    data: {
-      title: 'Início'
-    }
-  },
-  {
-    path: 'conta/nova',
-    component: ContaFormComponent,
-    data: {
-      title: 'Início'
-    }
-  },
-  {
-    path: 'conta/:id',
-    component: ContaComponent,
-    data: {
-      title: 'Início'
-    }
+    path: '**',
+    redirectTo: 'usuarios'
   },
 
 ];
